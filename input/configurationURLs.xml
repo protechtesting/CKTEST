@@ -1,0 +1,24 @@
+<Config>
+	<ConfigurationUrls>
+			
+		<!-- CashkaroConfigurationUrls -->
+		<ConfigurationUrls>
+	
+			<partner>    							cashkaro  							</partner>
+			<environment>    						Beta								</environment>
+			
+			<FrontendURL>	    		https://mychaddi.in/logout  				   </FrontendURL>
+						
+			<AdminURL>  	   			https://admin.iamsavings.co.uk/    				</AdminURL>
+			
+			<partnerType>           ICICI Cashback (Partner 2)                          </partnerType>
+		    <AdminUserName>                    dev                                      </AdminUserName>
+		    <AdminPassword>                  ppbeta3D                                   </AdminPassword>
+			
+		
+		</ConfigurationUrls>
+		
+			
+	</ConfigurationUrls>
+	
+</Config>
