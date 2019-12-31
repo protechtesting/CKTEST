@@ -7,9 +7,10 @@ import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import com.pps.wordpress.pages.WPStorePage;
 import com.relevantcodes.extentreports.ExtentTest;
 
-import pageobjects.WPStorePage;
 import utility.Log;
 import utility.TestSetUp;
 import utility.Utils;

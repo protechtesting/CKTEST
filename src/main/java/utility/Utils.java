@@ -20,6 +20,9 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
@@ -30,10 +33,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
-import pageobjects.WPCreationOfDataByHittingURLS;
+import com.pps.wordpress.pages.WPCreationOfDataByHittingURLS;
+import com.pps.wordpress.pages.WPHomePage;
 
 public class Utils extends TestSetUp{
+	
+	public static final Logger log = LogManager.getLogger(Utils.class);
 	private static Boolean presence =false;  
 	public WebDriver driver=null;
 	private static String testData=null;
@@ -216,7 +223,7 @@ public class Utils extends TestSetUp{
 	
 	public static void sleep3sec(){
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -795,14 +802,15 @@ public class Utils extends TestSetUp{
 			element.click();
 			return true;
 			
-		}
-		
+		}		
 					
 			else
 				return false;
 	
 		
 	}
+	
+
 	
 	
 }
