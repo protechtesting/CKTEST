@@ -24,6 +24,155 @@ import utility.Utils;
 
 public class PaymentsPageTestcases extends TestSetUp{
 	
+	
+	/**
+	 * This method will verify default Components of Payment Form When New User request rewards Payment.
+	 */
+	//@Test(priority=5,enabled=true)
+	public void verifyDefaultComponentsOfPaymentFormWhenNewUserRequestRewardsPayment() {
+		String start="Validation of presence of default component in Payment Form when a user requested reward payment Started";
+		String completed="Validation of presence of default component in Payment Form when a user requested reward payment completed";
+		Log.info(start);
+		reportStep(start,"INFO");
+		String amount=Utils.getTestData(6, "thresholdAmount");
+		String cashBackType=Utils.getTestData(6, "RewardsType");
+		
+		String email=Utils.generateRandomEmailId();
+		String password=Utils.getTestData(1, "password");
+		String mobile=Utils.generateRandomMobileNumber();
+		new WPHomePage(driver, logger).
+		clickOnlblSignInSignUP().
+		clickOnlnkSignIn().
+		clickSignUpTab().
+		enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
+		enterEmailIDDuringSignUp(email).
+		enterPasswordSignUp(password).
+		enterMobileNumberSignUp(mobile).
+		clickJoinWithEmailDuringSignUp().
+		enterOtpDuringSignUp(mobile).
+		clickVerifyOTP().
+		verifyPresenceOfMyAccountLabel().
+		clickMyAccountLabel().
+		clickMyEarningLink().
+		addCashbackRewards(amount, email, cashBackType).
+		clickRequestRewardsPaymentButtonToNavigateToPaymentForm().
+		verifyPresenceOfRewardsAvailableForPaymentLabel().
+		verifyPresenceOfRewardsAmountAvailableForPaymentLabel().
+		verifyPresenceOfChoosePaymentMethodLabel().
+		verifyDefaultSelectedPaymentMethod("Amazon Gift Card").
+		verifyPresenceOfEnterGiftCardDetailsLabel().
+		verifyPresenceOfEmailIdToSendGiftCardLabel().
+		verifyPresenceOfWouldYouDonateCharityLabel().
+		verifyPresenceOfSelectCharityToDonateLabel().
+		verifyPresenceOfRewardsYouWishToDonateLabel().
+		verifyPresenceOfRewardsAvailableAfterDonationLabel().
+		verifyTextOfGetPaidButton().
+		verifyPresenceOfAmountAvailableAfterDonation().
+		verifyPresenceCharityAmountTextBox();
+		Log.info(completed);
+		reportStep(completed,"PASS");
+	}
+	
+	
+	
+
+	/**
+	 * This method will verify default Components of Payment Form When New User request Cash back Payment.
+	 */
+	//@Test(priority=6,enabled=true)
+	public void verifyDefaultComponentsOfPaymentFormWhenNewUserRequestCashbackPayment() {
+		String start="Validation of presence of default component in Payment Form when a user requested Cashback payment Started";
+		String completed="Validation of presence of default component in Payment Form when a user requested Cashback payment completed";
+		Log.info(start);
+		reportStep(start,"INFO");
+		String amount=Utils.getTestData(6, "thresholdAmount");
+		String cashBackType=Utils.getTestData(6, "cashBackType");
+		
+		String email=Utils.generateRandomEmailId();
+		String password=Utils.getTestData(1, "password");
+		String mobile=Utils.generateRandomMobileNumber();
+		new WPHomePage(driver, logger).
+		clickOnlblSignInSignUP().
+		clickOnlnkSignIn().
+		clickSignUpTab().
+		enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
+		enterEmailIDDuringSignUp(email).
+		enterPasswordSignUp(password).
+		enterMobileNumberSignUp(mobile).
+		clickJoinWithEmailDuringSignUp().
+		
+		
+		enterOtpDuringSignUp(mobile).
+		clickVerifyOTP().
+		verifyPresenceOfMyAccountLabel().
+		clickMyAccountLabel().
+		clickMyEarningLink().
+		addCashbackRewards(amount, email, cashBackType).
+		clickRequestCashbackPaymentButtonToNavigate().
+		verifyPresenceOfCashbackAvailableForPaymentLabel().
+		//verifyPresenceOfRewardsAmountAvailableForPaymentLabel().
+		verifyPresenceOfChoosePaymentMethodLabel().
+		verifyDefaultSelectedPaymentMethod("Bank Payment (NEFT)").
+		verifyPresenceOfEnterBankDetailsLabel().
+		verifyPresenceOfNameOfBankAccountHolderLabel().
+		verifyPresenceOfBankNameLabel().
+		verifyPresenceOfCashbackAvailableForPaymentLabel().
+		verifyPresenceOfBankAccountNumberLabel().
+		verifyPresenceOfBankIfscCodeLabel().
+		verifyPresenceOfBankBranchNameLabel().
+		verifyPresenceOfSelectCharityToDonateCashbackLabel().
+		verifyPresenceOfCashbackYouWishToDonateLabel().
+		verifyPresenceOfCashbackAvailableAfterDonationLabel().
+		verifyPresenceOfWouldYouDonateCashbackCharityLabel().
+		verifyTextOfGetPaidButton().
+		verifyPresenceOfAmountAvailableAfterDonation().
+		verifyPresenceCharityAmountTextBox();
+		Log.info(completed);
+		reportStep(completed,"PASS");
+	}
+	
+	/**
+	 * This method will verify list of Payment Method available in Payment Form for a new User.
+	 * 
+	 */
+	//@Test(priority=4,enabled=true)
+	public void verifyListOfPaymentMethodAvailableInPaymentForm() {
+		String start="Validation of List of Payment Method Option Avaiable in Payment Form Started";
+		String completed="Validation of List of Payment Method Option Avaiable in Payment Form Completed";
+		Log.info(start);
+		reportStep(start,"INFO");
+		String amount=Utils.getTestData(6, "thresholdAmount");
+		String cashBackType=Utils.getTestData(6, "cashBackType");
+		String paymentOptions=Utils.getTestData(6, "paymentOptions");
+		
+		String email=Utils.generateRandomEmailId();
+		String password=Utils.getTestData(1, "password");
+		String mobile=Utils.generateRandomMobileNumber();
+		new WPHomePage(driver, logger).
+		clickOnlblSignInSignUP().
+		clickOnlnkSignIn().
+		clickSignUpTab().
+		enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
+		enterEmailIDDuringSignUp(email).
+		enterPasswordSignUp(password).
+		enterMobileNumberSignUp(mobile).
+		clickJoinWithEmailDuringSignUp().
+		enterOtpDuringSignUp(mobile).
+		clickVerifyOTP().
+		verifyPresenceOfMyAccountLabel().
+		clickMyAccountLabel().
+		clickMyEarningLink().
+		addCashbackRewards(amount, email, cashBackType).
+		clickRequestCashbackPaymentButtonToNavigateToPaymentForm().
+		verifyAllPaymentOptionsAreAvailable(paymentOptions);
+		Log.info(completed);
+		reportStep(completed,"PASS");
+	}
+	
+
+	
+
+	
 	/**
 	 * This method will verify Successful Payment processing 
 	 * for a New User using Cash back Payment Processing method.
@@ -82,6 +231,57 @@ public class PaymentsPageTestcases extends TestSetUp{
 		Log.info("Validation of successful payment processing by clicking Request cash back Payment button for New user.---- COMPLETED");
 		reportStep("Validation of successful payment processing by clicking Request cash back Payment button for New user.---- COMPLETED", "PASS");
 	}
+	
+	/**
+	 * This method will validate default content of Payments Page when both cashback and rewards are more than or equal to threshold.
+	 * Cash Back= Rs 250 and Rewards = Rs 250
+	 * Each time a new user will be created.
+	 *   
+	 */
+	//@Test(priority=8,enabled=true)
+	public void verifyDefaultContentOfPaymentPageWhenBothCashBackAndRewardsEqualToThreshold() {
+		String start="Validation of Default Content Of Payment Page When Both Cash Back And Rewards Equal To Threshold for a new user Started";
+		String completed="Validation of Default Content Of Payment Page When Both Cash Back And Rewards Equal To Threshold for a new user completed";
+		Log.info(start);
+		reportStep(start,"INFO");
+		String amount=Utils.getTestData(6, "thresholdAmount");
+		String cashBackType=Utils.getTestData(6, "cashBackType");
+		String rewardsType=Utils.getTestData(6, "RewardsType");
+		
+		String email=Utils.generateRandomEmailId();
+		String password=Utils.getTestData(1, "password");
+		String mobile=Utils.generateRandomMobileNumber();
+		new WPHomePage(driver, logger).
+		clickOnlblSignInSignUP().
+		clickOnlnkSignIn().
+		clickSignUpTab().
+		enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
+		enterEmailIDDuringSignUp(email).
+		enterPasswordSignUp(password).
+		enterMobileNumberSignUp(mobile).
+		clickJoinWithEmailDuringSignUp().
+		
+		
+		enterOtpDuringSignUp(mobile).
+		clickVerifyOTP().
+		verifyPresenceOfMyAccountLabel().
+		addCashbackRewards(amount, email, cashBackType).
+		addCashbackRewards(amount, email, rewardsType).
+		clickMyAccountLabel().
+		clickPaymentsMenuOnHomePage().
+		verifyAmountAvailableForPaymentLabel().
+		verifyEarningAvailableForPaymentLabel().
+		verifyCashBackAndRewardsAmount250Each().
+		verifyInfoAboutRequestPayment1().
+		verifyInfoAboutRequestPayment2().
+		clickHereLinkInPaymentPage().
+		clickHereLinkCloseIconInPaymentPage().
+		verifyInfoAboutRequestPayment3();
+		Log.info(completed);
+		reportStep(completed,"PASS");
+	}
+
+
 
 	/**
 	 * This method will verify successful payment processing by clicking Request cash back Payment button for already registered user.
@@ -121,181 +321,7 @@ public class PaymentsPageTestcases extends TestSetUp{
 		reportStep("Validation of successful payment processing by clicking Request cash back Payment button for already registered user.---- COMPLETED", "PASS");
 	}
 
-	/**
-	 * This method will verify new user is will not be able to Process Cash back Payment Using If he has cash back less
-	 * than Threshold limit. Set Threshold= 250 & Cash back amount =249
-	 * Precondition : User should have Rs 249 Confirm Cashback. Threashhold limit should be Rs 250. User  Clicks Request Cashback Payment
-	 */
-	@Test(priority=3,enabled=true)
-	public void verifyUserIsUnableToProcessCashbackIfCashBackIsLessThanThresholdLimit() {
-		Log.info("Validation of Presence of Message \"PAYMENT THRESHOLD NOT REACHED\" for Cash Back>---- Started");
-		reportStep("Validation of Presence of Message \"PAYMENT THRESHOLD NOT REACHED\" for Cash Back>---- Started", "INFO");
-		String amount=Utils.getTestData(6, "lessThanThresholdAmount");
-		String cashBackType=Utils.getTestData(6, "cashBackType");
-		String email=Utils.generateRandomEmailId();
-		String password=Utils.getTestData(1, "password");
-		String mobile=Utils.generateRandomMobileNumber();
-		new WPHomePage(driver, logger).
-		clickOnlblSignInSignUP().
-		clickOnlnkSignIn().
-		clickSignUpTab().
-		enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
-		enterEmailIDDuringSignUp(email).
-		enterPasswordSignUp(password).
-		enterMobileNumberSignUp(mobile).
-		clickJoinWithEmailDuringSignUp().
-		
-		
-		enterOtpDuringSignUp(mobile).
-		clickVerifyOTP().
-		verifyPresenceOfMyAccountLabel().
-		clickMyAccountLabel().
-		clickMyEarningLink().
-		addCashbackRewards(amount, email, cashBackType).
-		clickRequestCashbackPaymentButton().
-		verifyPresenceMessageThresholdNotReached().
-		verifyPresenceMessageUnableToProcessRequest();
-		Log.info("Validation of Presence of Message \"PAYMENT THRESHOLD NOT REACHED\" for Cash Back>---- COMPLETED");
-		reportStep("Validation of Presence of Message \"PAYMENT THRESHOLD NOT REACHED\" for Cash Back>---- COMPLETED", "PASS");
-	}
 
-	/**
-	 * This method will verify new user is will not be able to Process Rewards Payment Request If he has Rewards  less
-	 * than Threshold limit. Set Threshold= 250 & Rewards amount =249
-	 * Precondition : User should have Rs 249 Confirm Cashback. Threashhold limit should be Rs 250.  Click Request Rewards Payment
-	 */
-	@Test(priority=4,enabled=true)
-	public void verifyUserIsUnableToProcessRewardsIfRewardsIsLessThanThresholdLimit() {
-		Log.info("Validation of Presence of Message \"PAYMENT THRESHOLD NOT REACHED\" for Rewards---- Started");
-		reportStep("Validation of Presence of Message \"PAYMENT THRESHOLD NOT REACHED\" for Rewards---- Started", "INFO");
-		String amount=Utils.getTestData(6, "lessThanThresholdAmount");
-		String cashBackType=Utils.getTestData(6, "RewardsType");
-		String email=Utils.generateRandomEmailId();
-		String password=Utils.getTestData(1, "password");
-		String mobile=Utils.generateRandomMobileNumber();
-		new WPHomePage(driver, logger).
-		clickOnlblSignInSignUP().
-		clickOnlnkSignIn().
-		clickSignUpTab().
-		enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
-		enterEmailIDDuringSignUp(email).
-		enterPasswordSignUp(password).
-		enterMobileNumberSignUp(mobile).
-		clickJoinWithEmailDuringSignUp().
-		
-		
-		enterOtpDuringSignUp(mobile).
-		clickVerifyOTP().
-		verifyPresenceOfMyAccountLabel().
-		clickMyAccountLabel().
-		clickMyEarningLink().
-		addCashbackRewards(amount, email, cashBackType).
-		clickRequestRewardsPaymentButton().
-		verifyPresenceMessageThresholdNotReached().
-		verifyPresenceMessageUnableToProcessRequest();
-		Log.info("Validation of Presence of Message \"PAYMENT THRESHOLD NOT REACHED\" for Rewards---- COMPLETED");
-		reportStep("Validation of Presence of Message \"PAYMENT THRESHOLD NOT REACHED\" for Rewards---- COMPLETED", "PASS");
-	}
-
-	/**
-	 * This method will verify Successful Payment processing 
-	 * for a New User using Rewards Payment Processing method.
-	 * precondtion : Rewards=>250
-	 */
-	@Test(priority=25,enabled=true)
-	public void verifySuccessfulRewardPaymentForNewUser() {
-		Log.info("Validation of successful payment processing by clicking Request Rewards Payment button for New User.---- Started");
-		reportStep("Validation of successful payment processing by clicking Request Rewards Payment button for New User .---- Started", "INFO");
-		String amount=Utils.getTestData(6, "thresholdAmount");
-		String cashBackType=Utils.getTestData(6, "RewardsType");
-		String otp="";
-		String email=Utils.generateRandomEmailId();
-		String password=Utils.getTestData(1, "password");
-		String mobile=Utils.generateRandomMobileNumber();
-		new WPHomePage(driver, logger).
-		clickOnlblSignInSignUP().
-		clickOnlnkSignIn().
-		clickSignUpTab().
-		enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
-		enterEmailIDDuringSignUp(email).
-		enterPasswordSignUp(password).
-		enterMobileNumberSignUp(mobile).
-		clickJoinWithEmailDuringSignUp().
-		
-		
-		enterOtpDuringSignUp(mobile).
-		clickVerifyOTP().
-		verifyPresenceOfMyAccountLabel().
-		clickMyAccountLabel().
-		clickMyEarningLink().
-		addCashbackRewards(amount, email, cashBackType).
-		clickRequestRewardsPaymentButtonToNavigateToPaymentForm().
-		enterEmailAddress(email).
-		clickGetPaidButton();
-		
-		new WPPaymentPage(driver, logger).
-		enterOTP(Utils.getOTPCode(mobile, driver)).
-		clickVerifyOTPButton().
-		verifyPresenceMessageAfterSuccessfulClaimingCashback().
-		clickClosePopUpIcon().
-		clickTabRewardEarnings().
-		verifyPresenceOfRequestedStatusLabel();
-		Utils.clearCashbackRewards(driver, email); 
-		Utils.refresh(driver);
-		new WPMyEarningsPage(driver, logger).
-		clickTabRewardEarnings().
-		verifyPresenceOfPaidStatusLabel();
-		Log.info("Validation of successful payment processing by clicking Request Rewards Payment button for New user.---- COMPLETED");
-		reportStep("Validation of successful payment processing by clicking Request Rewards Payment button for New user.---- COMPLETED", "PASS");
-	}
-	
-	/**
-	 * This method will verify presence of error message "A payment request from you is already Pending. 
-	 * This will be processed shortly. Once this is paid, you can request for another payment."
-	 * User Logins and click "REQUEST REWARDS PAYMENT" Link in My Earning Panel.
-	 */
-	@Test(priority=6,enabled=true)
-	public void verifyPaymentRequestAlreadyPendingMessageByClickingOnRequestRewardsPayment() {
-		Log.info("Validation of Payment Request is Already Pending By clicking on REQUEST REWARDS PAYMENT---- Started");
-		reportStep("Validation of Payment Request is Already Pending By clicking on REQUEST REWARDS PAYMENT---- Started", "INFO");
-		String amount=Utils.getTestData(6, "thresholdAmount");
-		String cashBackType=Utils.getTestData(6, "cashBackType");
-		String otp="";
-		String email=Utils.generateRandomEmailId();
-		String password=Utils.getTestData(1, "password");
-		String mobile=Utils.generateRandomMobileNumber();
-		new WPHomePage(driver, logger).
-		clickOnlblSignInSignUP().
-		clickOnlnkSignIn().
-		clickSignUpTab().
-		enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
-		enterEmailIDDuringSignUp(email).
-		enterPasswordSignUp(password).
-		enterMobileNumberSignUp(mobile).
-		clickJoinWithEmailDuringSignUp().
-		
-		
-		enterOtpDuringSignUp(mobile).
-		clickVerifyOTP().
-		verifyPresenceOfMyAccountLabel().
-		clickMyAccountLabel().
-		clickMyEarningLink().
-		addCashbackRewards(amount, email, cashBackType).
-		clickRequestRewardsPaymentButtonToNavigateToPaymentForm().
-		enterEmailAddress(email).
-		clickGetPaidButton();
-		
-		new WPPaymentPage(driver, logger).
-		enterOTP(Utils.getOTPCode(mobile, driver)).
-		clickVerifyOTPButton().
-		clickClosePopUpIcon().
-		addCashbackRewards(amount, email, cashBackType).
-		clickRequestRewardsPaymentButtonToNavigateToPaymentForm().
-		verifyPresenceMessagePaymentRequestAlreadyPending().
-		clickClosePopUpIcon();
-		Log.info("Validation of Payment Request is Already Pending By clicking on REQUEST REWARDS PAYMENT---- COMPLETED");
-		reportStep("Validation of Payment Request is Already Pending By clicking on REQUEST REWARDS PAYMENT---- COMPLETED", "PASS");
-	}
 	
 	/**
 	 * This method will verify existing user is able to donate Charity
@@ -320,7 +346,7 @@ public class PaymentsPageTestcases extends TestSetUp{
 		String bankName=Utils.getTestData(6, "bankName");
 		new WPHomePage(driver, logger).
 		clickOnlblSignInSignUP().
-		clickOnlnkSignIn().0
+		clickOnlnkSignIn().
 		clickSignUpTab().
 		enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
 		enterEmailIDDuringSignUp(email).
@@ -1254,6 +1280,7 @@ public class PaymentsPageTestcases extends TestSetUp{
 		Utils.refresh(driver);
 		new WPMyEarningsPage(driver, logger).
 		clickTabRewardEarnings().
+		
 		verifyPresenceOfCancelledStatusLabel().
 		verifyTextOfFirstRowDateInMyEarningRewardsType().
 		verifyTextOfFirstRowRewardsAmountInMyEarningRewardsType().
@@ -1263,4 +1290,171 @@ public class PaymentsPageTestcases extends TestSetUp{
 		Log.info(completed);
 		reportStep(completed, "PASS");
 	}
+	
+	
+	
+	public void consecutivePayment_CB_10_RW_10_ReqCB_TC016() {
+		
+		
+	}
+
+	public void consecutivePayment_CB_10_RW_10_ReqRW_TC017() {
+		
+		
+	}
+
+	public void consecutivePayment_CB_10_RW_250_ReqRW_TC019() {
+		
+		
+	}
+
+	public void consecutivePayment_CB_250_RW_10_ReqCB_OnlyRedeemCashback_TC018() {
+		
+		
+	}
+
+	public void payment_CB_0_RW_0_ReqCB_TC001() {
+		
+		
+	}
+
+	public void payment_CB_0_RW_0_ReqRW_TC002() {
+		
+		
+	}
+
+	public void payment_CB_0_RW_250_ReqCB_Via_AmazonGC_TC005() {
+		
+		
+	}
+
+	public void payment_CB_0_RW_250_ReqCB_Via_FlipKartGC_TC005() {
+		
+		
+	}
+
+	public void payment_CB_0_RW_250_ReqRW_Via_AmazonGC_TC006() {
+		
+		
+	}
+
+	public void payment_CB_0_RW_250_ReqRW_Via_FlipKartGC_TC006() {
+		
+	}
+
+	public void payment_CB_10_RW_240_ReqCB_Via_AmazonGC_TC007() {
+		
+	}
+
+	public void payment_CB_10_RW_240_ReqCB_ViaFlipKartGC_TC007() {
+		
+	}
+
+	public void payment_CB_10_RW_240_ReqRW_Via_AmazonGC_TC008() {
+		
+	}
+
+	public void payment_CB_10_RW_240_ReqRW_Via_FlipKartGC_TC008() {
+		
+	}
+
+	public void payment_CB_10_RW_240_ReqRW_Via_PaytmWallet_TC008() {
+		
+	}
+
+	public void payment_CB_240_RW_10_ReqCB_Via_AmazonGC_TC009() {
+		
+	}
+
+	public void payment_CB_240_RW_10_ReqCB_Via_FlipKartGC_TC009() {
+		
+	}
+
+	public void payment_CB_240_RW_10_ReqRW_Via_AmazonGC_TC011() {
+		
+	}
+
+	public void payment_CB_240_RW_10_ReqRW_Via_FlipKartGC_TC011() {
+		
+	}
+
+	public void payment_CB_250_RW_0_ReqCB_TC003() {
+		
+	}
+
+	public void payment_CB_250_RW_0_ReqCBWithNEFTCharityAmount_TC010_A() {
+		
+	}
+
+	public void payment_CB_250_RW_0_ReqRW_Via_AmazonGC_TC004() {
+		
+	}
+
+	public void payment_CB_250_RW_0_ReqRW_ViaFlipKartGC_TC004() {
+		
+	}
+
+	public void payment_CB_250_RW_0_ReqRWWithAmazonCharityAmount_TC010_B() {
+		
+	}
+
+	public void payment_CB_250_RW_0_ReqRWWithFlipKartCharityAmount_TC010_B() {
+		
+	}
+
+	public void payment_CB_250_RW_0_ReqRWWithPaytmWalletCharityAmount_TC010_C() {
+	}
+
+	public void payment_CB_250_RW_250_ReqCB_Combine_Via_AmazonGC_TC012() {
+		
+	}
+
+	public void payment_CB_250_RW_250_ReqCB_Combine_Via_FlipKartGC_TC012() {
+		
+	}
+
+	public void payment_CB_250_RW_250_ReqCB_OnlyRedeemCashback_TC013() {
+		
+	}
+
+	public void payment_CB_250_RW_250_ReqRW_Combine_Via_Amazon_TC014() {
+		
+	}
+
+	public void payment_CB_250_RW_250_ReqRW_Combine_Via_FlipKart_TC014() {
+		
+	}
+
+	public void payment_CB_250_RW_250_ReqRW_OnlyRedeemRewards_Via_AmazonGC_TC015() {
+		
+	}
+
+	public void payment_CB_250_RW_250_ReqRW_OnlyRedeemRewards_Via_FlipKartGC_TC015() {
+		
+	}
+
+	public void payment_negativeErrorValidationForAmazonGiftCard_TC022() {
+		
+	}
+
+	public void payment_negativeErrorValidationForCharitySection_TC023() {
+		
+	}
+
+	public void payment_negativeErrorValidationForFlipKartGiftCard_TC022() {
+		
+	}
+
+	public void payment_negativeErrorValidationForNEFT_TC021() {
+		
+	}
+
+	public void paymentOTP_NegativeValidation_TC024() {
+		
+	}
+
+	public void paymentPageValidation_TCO20() {
+		
+	}
+	
 }

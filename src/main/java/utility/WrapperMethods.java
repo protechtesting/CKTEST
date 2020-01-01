@@ -30,7 +30,7 @@ public class WrapperMethods extends TestSetUp {
 			if (ele.isDisplayed()) 
 			{
 				
-				log.info(label +" element is displayed in login page");
+				log.info(label +" is displayed in login page");
 				reportStep(label + " is displayed in the login page", "PASS");
 			}
 

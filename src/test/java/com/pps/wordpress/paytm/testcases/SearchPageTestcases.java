@@ -1,5 +1,7 @@
 package com.pps.wordpress.paytm.testcases;
 
+import org.testng.annotations.Test;
+
 /**
  *This class will verify various login and error scenario in WordPress.
  * <p>
@@ -117,6 +119,8 @@ public class SearchPageTestcases {
 	{
 		
 	}
+	
+	
 
 
 

@@ -19,6 +19,41 @@ import utility.Utils;
  * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-2">Raise JIRA Issue Here</a> 
  */
 public class WP_VerifyStorePageFunctionalityForRewards extends TestSetUp{
+		
+	
+	/**
+	 * <p><strong>Verify Default components of Store Page</strong><dd> 
+     * Log In /Sign Up(Link))<dd>
+	 * How it Works(Link)<dd>
+     * Search Retailer or Coupons(Input box)<dd>
+     * Contact Us
+     * Breadcrump
+     * Hamburger Menu
+     * Store Image
+     * Store short description
+     * Activate Cashback Button
+     * Show Cashback Rates Dock, Undock icon
+     * Primary, Secondary cashback short description
+     * Verify Cashback Type (Percentage, Currency)
+     * Verify Cashback Value
+     * Verify Store Title
+     * Verify voucher Title
+     * Verify voucher short description
+     * Verify voucher full description
+     * Verify See Details, Hide Details Link
+     * Very Voucher Expiry
+
+
+	 * <p>PreCondition: User must be guest
+	 */
+	//@Test(priority=1)
+	public void VerifyDefaultComponentsofStorePage()
+	{
+		
+
+		
+		
+	}
 	
 	/**
 	 * Method Name: verifyNormalRewardsBothPryAndSecondaryInPercentage
@@ -386,6 +421,55 @@ public class WP_VerifyStorePageFunctionalityForRewards extends TestSetUp{
 		clickLinkHideCashbackRates();
 		Log.info(completed);
 		reportStep(completed, "PASS");
+	}
+	
+	/**
+	 * <p><strong>Verify Link URL contains Activate cahback</p></strong>
+	 *
+	 * 
+	 */
+	@Test(priority=16,enabled=true)
+	public void verifyLinkURLContainsActivateCashback() {
+	
+		
+	}
+	
+	
+
+	/**
+	 * <p><strong>Verify Search Result when no voucher found</p></strong>
+	 *
+	 * 
+	 */
+	@Test(priority=16,enabled=true)
+	public void verifySearchResultWhenNoVoucherFound() {
+	
+		
+	}
+	
+	/**
+	 * <p><strong>signed user navigation on clicking Activate Cashback</p></strong>
+	 * Verify Exit click created or not
+	 *
+	 * 
+	 */
+	@Test(priority=16,enabled=true)
+	public void SignedUsernavigationOnclickingCashback() {
+	
+		
+	}
+	
+	
+	/**
+	 * 
+	 * <p><strong>VerifyInActive&ExpiredVoucherShouldnotshowOnStore</p></strong>
+	 *
+	 * 
+	 */
+	@Test(priority=16,enabled=true)
+	public void InActiveExpiredVoucherShouldnotshow() {
+	
+		
 	}
 	
 	

@@ -47,6 +47,20 @@ public class WPSignUpSignInPopUp extends WrapperMethods{
 
 	@FindBy(id="popup_signin")
 	private static WebElement lnkSignInTab;
+	
+	public WPSignUpSignInPopUp verifyFieldsPresentSignup() throws Exception
+	{	
+
+		verifyDisplayed(driver,"Full Name field",txtBxFullName);
+		verifyDisplayed(driver,"Sign Up Link",lnkSignUp);
+		verifyDisplayed(driver,"Email field",txtBxEmailAddressSignUp);	
+		verifyDisplayed(driver,"Password field",txtBxChoosePasswordSignUp);		
+		verifyDisplayed(driver,"Mobile Number",txtBxMobileNumberSignUp);
+		verifyDisplayed(driver,"SignUp button",btnJoinWithEmailSignUpPopUp);
+		verifyDisplayed(driver,"TermsAndCondition link",lnkTermsAndConditions);
+				
+		return this;
+	}
 
 	//Click on Sign In Tab
 	public WPSignUpSignInPopUp clickOnlnkSignInTab() {
@@ -362,6 +376,7 @@ public class WPSignUpSignInPopUp extends WrapperMethods{
 			reportStep("Locating Sign In Link of Login Pop Up","INFO");
 			Log.info("Locating Sign In Link of Login Pop Up");
 			presence=Utils.verifyElementPresence(lnkSignInLoginForm);
+			Utils.explicitWaitForClick(lnkSignInLoginForm);
 			if(presence==false) {
 				throw new InterruptedException("Sign In Link of Login Pop Up is not visible");
 			}

@@ -18,6 +18,10 @@ import utility.Utils;
  * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-12">Raise JIRA Issue Here</a>
  */
 public class WP_VerifyStorePageFunctionalityForNetworkEighteen extends TestSetUp{
+	/**
+	 * verifyAllUserNewUserRadioButtonFunctionality	
+	 */
+	
 	@Test(priority=1,enabled=true)
 	public void verifyAllUserNewUserRadioButtonFunctionality() {
 		StoreTestData std=new StoreTestData(driver, logger);
@@ -35,8 +39,12 @@ public class WP_VerifyStorePageFunctionalityForNetworkEighteen extends TestSetUp
 		reportStep(completed, "PASS");
 	}
 	
+	/**
+	 * Verify N18 Link URL contains Retailer Name "Myntra"
+	 */
+	
 	@Test(priority=2,enabled=true)
-	public void verifyLnkUrlContainsOnClickingGrabDealInStorePage() {
+	public void verifyLnkUrlContainsOnClickingRetailerNameInStorePage() {
 		StoreTestData std=new StoreTestData(driver, logger);
 		StoreTestData.extractJsonValuesForStoreOne("N18_Store_One");
 		String storeName=std.getStoreName("str_Store_One_Name");
@@ -64,6 +72,10 @@ public class WP_VerifyStorePageFunctionalityForNetworkEighteen extends TestSetUp
 		reportStep(completed, "PASS");
 	}
 	
+	/**
+	 * Verify both primary and secondary cashback"
+	 */
+	
 	@Test(priority=3,enabled=true)
 	public void verifyNormalCashbackBothPryAndSecondaryInPercentage() {
 		StoreTestData std=new StoreTestData(driver, logger);
@@ -87,6 +99,10 @@ public class WP_VerifyStorePageFunctionalityForNetworkEighteen extends TestSetUp
 		Log.info(completed);
 		reportStep(completed, "PASS");
 	}
+	
+	/**
+	 * verify Intermediate Page After clicking Grab Deal"
+	 */
 	
 	@Test(priority=4,enabled=true)
 	public void verifyIntermediaryPageAfterClickingGrabDeal() {

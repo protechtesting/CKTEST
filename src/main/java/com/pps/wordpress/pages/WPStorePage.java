@@ -50,6 +50,48 @@ public class WPStorePage extends TestSetUp{
 	
 	@FindBy(id="lnkStoreTermsConditions")
 	private static WebElement lnkMainCtaActivateCashback;
+	
+	@FindBy(id="lblStoreFacetHead")
+	private static WebElement lblStoreName;
+	
+	
+
+	public  WPStorePage verifyStoreName(String shortDesc) {
+		String locator="Locating store Name";
+		String pass="Successfully verified the store name. It is : "+lblStoreName.getText();
+		String fail="Unable to locate  button text of Store Page Main CTA";
+		Log.info(locator);
+		reportStep(locator, "INFO");
+		String shortDescription=new StoreTestData(driver, logger).getRequiredShortDescription(shortDesc);
+		if(lblStoreName.getText().toString().trim().contains(shortDescription)) {
+			Log.info(pass);
+			reportStep(pass, "PASS");
+		}else {
+			Log.info(fail);
+			reportStep(fail, "FAIL");
+		}
+		return this;
+	}
+	
+
+
+	public  WPStorePage verifyStorePageMainCTAButtonText(String shortDesc) {
+		String locator="Locating Button Text for the store";
+		String pass="Successfully verified presence of button text of Store Page Main CTA. It is : "+lnkMainCtaActivateCashback.getText();
+		String fail="Unable to locate  button text of Store Page Main CTA";
+		Log.info(locator);
+		reportStep(locator, "INFO");
+		String shortDescription=new StoreTestData(driver, logger).getRequiredButtonText(shortDesc);
+		if(lnkMainCtaActivateCashback.getText().toString().trim().equals(shortDescription)) {
+			Log.info(pass);
+			reportStep(pass, "PASS");
+		}else {
+			Log.info(fail);
+			reportStep(fail, "FAIL");
+		}
+		return this;
+	}
+	
 
 	//Click Main CTA 
 	public WPSignUpSignInPopUp clickMainCtaActivateCashBackLink() {
@@ -164,9 +206,10 @@ public class WPStorePage extends TestSetUp{
 		String locator="Locating Voucher Title for Store in Store Page";
 		String pass="Successfully verified presence of Voucher Title for Store in Store Page. It is : "+lblVoucherTitle.getText();
 		String fail="Unable to locate Voucher Title for Store in Store Page";
-		String voucherTitle=new StoreTestData(driver, logger).getVoucherOneName(voucherOneName);
+		String voucherTitle=new StoreTestData(driver, logger).getRequiredVoucherName(voucherOneName);
 		Log.info(locator);
 		reportStep(locator, "INFO");
+	Utils.sleep3sec();
 		System.out.println(voucherTitle);
 		System.out.println(lblVoucherTitle.getText().toString());
 		if(lblVoucherTitle.getText().toString().trim().equals(voucherTitle)) 
@@ -248,6 +291,32 @@ public class WPStorePage extends TestSetUp{
 		Log.info(locator);
 		reportStep(locator, "INFO");
 		if(Utils.verifyElementPresence(lblPrimaryCalenderIncreasedExpiresIn)) {
+			Log.info(pass);
+			reportStep(pass, "PASS");
+		}else {
+			Log.info(fail);
+			reportStep(fail, "FAIL");
+		}
+		return this;
+	}
+	
+	
+	@FindBy(id="lblVoucherExpireTag1")
+	private static WebElement lblVoucherExpiry;
+
+	public  WPStorePage verifyVoucherExpiry(String voucherexpiry) {
+		String locator="Locating \" Expires in ** days\" for voucher in Store Page";
+		String pass="Successfully verified presence of \" Expires in ** days\" for Primary voucher in Store Page. It is : "+lblVoucherExpiry.getText();
+		String fail="Unable to locate text : \" Expires in ** days\" for voucher Details in Store Page. It is : " +lblVoucherExpiry.getText();
+		Log.info(locator);
+		reportStep(locator, "INFO");
+		
+		String secondVoucherDescription=new StoreTestData(driver, logger).getRequiredExpiryText(voucherexpiry);
+		
+		System.out.println(secondVoucherDescription.substring(9));
+		System.out.println(lblVoucherExpiry.getText().toString().substring(9));
+		if(secondVoucherDescription.substring(0, 10).contains(lblVoucherExpiry.getText().toString().substring(0,10))) {
+		
 			Log.info(pass);
 			reportStep(pass, "PASS");
 		}else {
@@ -426,6 +495,8 @@ public class WPStorePage extends TestSetUp{
 		Log.info(locator);
 		reportStep(locator, "INFO");
 		String secondVoucherName=new StoreTestData(driver, logger).getRequiredVoucherName(voucherTwoName);
+		System.out.println(secondVoucherName);
+		System.out.println(secondVoucherName);
 		if(secondVoucherName.equals(lblVoucherTwoName.getText().toString())) {
 			Log.info(pass);
 			reportStep(pass, "PASS");

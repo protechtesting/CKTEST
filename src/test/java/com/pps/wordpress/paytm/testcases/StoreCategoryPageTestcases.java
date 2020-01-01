@@ -17,6 +17,27 @@ import utility.Utils;
  * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-2">Raise JIRA Issue Here</a>
  */
 public class StoreCategoryPageTestcases extends TestSetUp{
+	
+	
+	/**
+	 * <p><strong>Verify Default componenets of Store Category Page</strong><dd> 
+     * Log In /Sign Up(Link))<dd>
+	 * How it Works(Link)<dd>
+     * Search Retailer or Coupons(Input box)<dd>
+     * Contact Us
+     * Breadcrump
+	 * <p>PreCondition: User must be guest
+	 */
+	//@Test(priority=1)
+	public void VerifyDefaultComponentsofStoreCategoryPage()
+	{
+		
+
+		
+		
+	}
+	
+	
 	/**
 	 * This method will validate Sort By Newest Functionality
 	 */
@@ -142,6 +163,27 @@ public class StoreCategoryPageTestcases extends TestSetUp{
 	 */
 	@Test(priority=5,enabled=true)
 	public void verifyPaginationFunctionalityInStoreCategoryPage() {
+		String start="Validation of Pagination Functionality in Store category Page --- started";
+		String completed="Validation of Sorting By  Pagination Functionality in Store category Page --- completed";
+		String category=Utils.getTestData(2, "category2");
+		Log.info(start);
+		reportStep(start, "INFO");
+		new WPHomePage(driver, logger).
+		clickHambergerMenu().
+		clickMainCategory(category).
+		verifyPaginationFunctionalityInStoreCategoryPage();
+		Log.info(completed);
+		reportStep(completed, "PASS");
+	}
+	
+	
+	
+	/**
+	 * This method will verify the top store functionality in Store Category Page.
+	 * Precondition : For a particular category , number of store should be around 60.
+	 */
+	@Test(priority=5,enabled=true)
+	public void verifyTopStorefunctionality() {
 		String start="Validation of Pagination Functionality in Store category Page --- started";
 		String completed="Validation of Sorting By  Pagination Functionality in Store category Page --- completed";
 		String category=Utils.getTestData(2, "category2");

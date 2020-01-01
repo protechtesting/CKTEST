@@ -3,6 +3,7 @@ package com.pps.wordpress.pages;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,8 +22,9 @@ import com.relevantcodes.extentreports.ExtentTest;
 import utility.Log;
 import utility.TestSetUp;
 import utility.Utils;
+import utility.WrapperMethods;
 
-public class WPAddTicketForm extends TestSetUp{
+public class WPAddTicketForm extends WrapperMethods{
 	private static boolean presence=false;
 	public static final Logger log = LogManager.getLogger(WPAddTicketForm.class);
 	public WPAddTicketForm(WebDriver driver, ExtentTest logger){
@@ -67,6 +69,13 @@ public class WPAddTicketForm extends TestSetUp{
 		return new WPMissingTicket(driver, logger);
 	}
 	
+	@FindBy(xpath="//td[not(contains(class,'disabled'))]")
+	private static List<WebElement> ActiveDates;
+	
+	
+	@FindBy(xpath="//a[@class='minical_prev']")
+	private static WebElement PrevMonth;
+	
 	@FindBy(id="transaction_date")
 	private static WebElement txtBxTransactionDate;
 
@@ -110,6 +119,43 @@ public class WPAddTicketForm extends TestSetUp{
 		}
 		return this;
 	}
+	
+	
+	public WPAddTicketForm Verify10daysEnabled() {
+		String locator="Locating \"Today's Date\" in Date Picker in Add Ticket Form";
+		String pass="Successfully clicked \"Today's Date\" in Date Picker  in Add Ticket Form";
+		String fail="Unable to Locate \"Today's Date\" in Date Picker  in Add Ticket Form";
+		Log.info(locator);
+		reportStep(locator, "INFO");
+		 clickDateOfTransactionTextBox();
+		 clickTodaysDateInDatePicker();
+		 System.out.println(ActiveDates.size());
+		
+		return this;
+	}
+	
+	@FindBy(id="hintTransactionRetailerErr")
+	private static WebElement hour72Error;
+	
+	public  WPAddTicketForm Verify72hrsErrordisplayed() {
+		String locator="Locating \"Today's Date\" in Date Picker in Add Ticket Form";
+		String pass="Successfully clicked \"Today's Date\" in Date Picker  in Add Ticket Form";
+		String fail="Unable to Locate \"Today's Date\" in Date Picker  in Add Ticket Form";
+		Log.info(locator);
+		reportStep(locator, "INFO");
+		 try {
+			verifyDisplayed(driver, "72hour Error", hour72Error);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return this;
+	}
+	
+	
+	
+	
 	
 	private WebElement fourBackDate() {
 		WebElement element=driver.findElement(By.xpath("//td[contains(@class,'minical_day_"+Utils.backDateFourDays()+" minical_day')][1]"));

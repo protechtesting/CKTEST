@@ -3,6 +3,7 @@ package com.pps.wordpress.pages;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,10 +21,14 @@ import com.relevantcodes.extentreports.ExtentTest;
 import utility.Log;
 import utility.TestSetUp;
 import utility.Utils;
+import utility.WrapperMethods;
 
-public class WPMissingTicket extends TestSetUp{
+public class WPMissingTicket extends WrapperMethods{
 
 	private Boolean presence;
+	
+	int SelBefore;
+	int SelAfter;
 	public static final Logger log = LogManager.getLogger(WPMissingTicket.class);
 
 	//Parameterized Constructor for WP_MissingTicket
@@ -48,6 +53,41 @@ public class WPMissingTicket extends TestSetUp{
 
 		} 
 	}
+	
+	
+
+	// Hamburger Menu link
+	@FindBy(id = "ajaxMenuLoad")
+	private static WebElement lnkHamburgerMenu;
+	
+	// Search Store or Coupon element
+	@FindBy(name = "search_store")
+	private static WebElement txtBxSearchStoreOrCoupons;
+	
+	// Partners Logo
+	@FindBy(id = "imgTopSiteLogo")
+	private static WebElement lnkLogo;
+	
+	//Label Sign In Sign Up
+	@FindBy(xpath = "//span[contains(text(),'Log In')]")
+	private static WebElement lblSignInSignUP;
+		
+	@FindBy(id = "link_contactus")
+	private static WebElement lnkContactUsFooter;
+	
+	
+	public WPMissingTicket verifyHeaderFooterFieldsPresent() throws Exception {
+
+		verifyDisplayed(driver, "Hamburger Menu", lnkHamburgerMenu);
+		verifyDisplayed(driver, "search store textbox", txtBxSearchStoreOrCoupons);
+		verifyDisplayed(driver, "paytm logo", lnkLogo);
+		verifyDisplayed(driver, "Link SignIn/SignUP", lblSignInSignUP);
+		verifyDisplayed(driver, "ContactUs link", lnkContactUsFooter);
+
+		return this;
+	}
+	
+	
 	
 	@FindBy(xpath="//a[contains(text(),'Missing Cashback?')]")
 	private static WebElement lnkMissingCashBackLeftNav;
@@ -693,6 +733,11 @@ public class WPMissingTicket extends TestSetUp{
 	
 	@FindBy(xpath="//a[contains(text(),'SELECT')]")
 	private static WebElement lnkSelect;
+	
+	@FindBy(xpath="//a[contains(text(),'SELECT')]")
+	private static List<WebElement> lnkSelectsize;
+	
+	//a[text()='SELECT']
 
 	//This method click "SELECT Link" in Missing Cash back Page
 	public WPMissingTicket clickSelectLink() {
@@ -706,6 +751,9 @@ public class WPMissingTicket extends TestSetUp{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		SelBefore= lnkSelectsize.size(); 
+		
 		if(Utils.explicitWaitForClick(lnkSelect)) {
 			Log.info(pass);
 			reportStep(pass, "PASS");
@@ -857,6 +905,19 @@ public class WPMissingTicket extends TestSetUp{
 			return this;
 		}
 		
+		
+		@FindBy(xpath="//div[@id='idCashbackTickets']/div/article/ul[1]/li[2]")
+		private static WebElement lblRetailer;
+		
+
+		@FindBy(xpath="//div[@id='idCashbackTickets']/div/article/ul[1]/li[1]")
+		private static WebElement lblDate;
+		
+		
+		
+		
+		
+		
 		@FindBy(xpath="//strong[contains(.,'Received')]")
 		private static WebElement lblReceived;
 		//This method will verify presence of "Received" status of Ticket in Missing Cash back Page
@@ -866,8 +927,12 @@ public class WPMissingTicket extends TestSetUp{
 				String fail="Unable to locate \"Received\" status of Ticket in Missing Cashback Page";
 				Log.info(locator);
 				reportStep(locator, "INFO");
+				
+				System.out.println(java.time.LocalDate.now()); 
 				presence=Utils.verifyElementPresence(lblReceived);
-				if(presence) {
+				if(presence&&lblRetailer.getText().equals(Utils.getTestData(7, "retailerName")))
+					
+				{
 					Log.info(pass);
 					reportStep(pass, "PASS");
 				}else {
@@ -876,6 +941,8 @@ public class WPMissingTicket extends TestSetUp{
 				}
 				return this;
 			}
+			
+			
 	
 			@FindBy(xpath="//strong[contains(.,'Resolved')]")
 			private static WebElement lblResolved;
@@ -959,11 +1026,67 @@ public class WPMissingTicket extends TestSetUp{
 		return this;
 	}
 	
+	public WPMissingTicket VerifySelectLinkDisabled() {
+		String locator="Locating \"close Icon In Pop Up\" in Missing Cashback Page";
+		String pass="Successfully \"clicked close Icon In Pop Up\"  in Missing Cashback Page";
+		String fail="Unable to locate \"close Icon In Pop Up\"  in Missing Cashback Page";
+		Log.info(locator);
+		reportStep(locator, "INFO");
+
+       SelAfter = lnkSelectsize.size();
+       
+       if(SelBefore>SelAfter)
+       {
+    	   
+    	   Log.info(pass);
+			reportStep(pass, "PASS");
+		}else {
+			Log.info(fail);
+			reportStep(fail, "FAIL");
+		}
+		return this;
+	}
+	
 	@FindBy(id="lnkAddTicket")
 	private static WebElement lnkAddTicket;
+	
+	@FindBy(id="lblMissingCashbackInfo")
+	private static WebElement MissingCashbackInfo;
+	
+	
+	@FindBy(id="lblNoMissingCashback")
+	private static WebElement NoMissingCashbackInfo;
+	
+	@FindBy(id="iconMissingCashbackInfo")
+	private static WebElement IconMissingCashbackInfo;
+	
+	
+	@FindBy(xpath="//span[text()='Missing Tickets']")
+	private static WebElement MissingCashbackBreaducrump;
+	
+	
+	public WPMissingTicket verifyMissingcashbackdefaultcomponentsBeforeRaisningTicketPresent() throws Exception {
+
+		String pass = "verify pick of the day retailer functionality verification started";
+		String fail = "verify pick of the day retailer functionality verification started";
+		
+		verifyDisplayed(driver, "Popular Retailer section", lnkAddTicket);
+		verifyDisplayed(driver, "Trending Retailer section", MissingCashbackInfo);
+		verifyDisplayed(driver, "Pick of the day section", NoMissingCashbackInfo);
+		verifyDisplayed(driver, "4 panner", IconMissingCashbackInfo);
+		verifyDisplayed(driver, "4 panner", MissingCashbackBreaducrump);	
+		
+
+		return this;
+	}
+
+	
+	
+	
+	
 
 	//This method will click close Icon In Pop Up
-	public WPMissingTicket clickAddTicketLink() {
+	public WPAddTicketForm clickAddTicketLink() {
 		String locator="Locating \"Add Ticket Link\" in Missing Cashback Page";
 		String pass="Successfully \"clicked Add Ticket Link\"  in Missing Cashback Page";
 		String fail="Unable to locate \"Add Ticket Link\"  in Missing Cashback Page";
@@ -977,7 +1100,7 @@ public class WPMissingTicket extends TestSetUp{
 			Log.info(fail);
 			reportStep(fail, "FAIL");
 		}
-		return this;
+		return new WPAddTicketForm(driver,logger);
 	}
 	
 	@FindBy(id="lnkSubmit")

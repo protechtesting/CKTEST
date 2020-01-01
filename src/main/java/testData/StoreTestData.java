@@ -49,6 +49,9 @@ public class StoreTestData extends TestSetUp{
 	private static String str_Store_One_Final_Terms_condition;
 	private static String str_Store_One_Voucher_One_Desc;
 	private static String str_Store_One_Voucher_Two_Desc;
+	private static String str_Store_One_ButtonText;
+	private static String str_Store_One_Voucher_One_Vouchers_Exclusive_Text;
+	
 
 	// Store_Two_ - Core details
 	private static String str_Store_Two_Name;
@@ -160,6 +163,8 @@ public class StoreTestData extends TestSetUp{
 			str_Store_One_Short_Description										=  objMainNode.get(storeName+"_Short_Desc").toString().trim();
 			str_Store_One_Voucher_One_Desc										=  objMainNode.get(storeName+"_Voucher_One_Desc").toString().trim();
 			str_Store_One_Voucher_Two_Desc										=  objMainNode.get(storeName+"_Voucher_Two_Desc").toString().trim();
+			str_Store_One_ButtonText											=  objMainNode.get(storeName+"_ButtonText").toString().trim();
+			str_Store_One_Voucher_One_Vouchers_Exclusive_Text                   =  objMainNode.get(storeName+"_Voucher_One_Vouchers_Exclusive_Text").toString().trim();
 			
 		}
 		catch(Exception objError){
@@ -652,6 +657,45 @@ public class StoreTestData extends TestSetUp{
 
 		return string;
 	}
+	
+	
+	public String getRequiredButtonText(String requiredValue) {
+
+		String string = "";
+
+		switch (requiredValue) {
+
+		case "str_Store_One_ButtonText":
+
+			reportStep("str_Store_One_ButtonText: "+str_Store_One_ButtonText, "INFO");
+			return str_Store_One_ButtonText;
+
+	
+
+		}
+
+		return string;
+	}
+	
+	public String getRequiredExpiryText(String requiredValue) {
+
+		String string = "";
+
+		switch (requiredValue) {
+
+		case "str_Store_One_Voucher_One_Vouchers_Exclusive_Text":
+
+			reportStep("str_Store_One_Voucher_One_Vouchers_Exclusive_Text: "+str_Store_One_Voucher_One_Vouchers_Exclusive_Text, "INFO");
+			return str_Store_One_Voucher_One_Vouchers_Exclusive_Text;
+
+	
+
+		}
+
+		return string;
+	}
+
+	
 
 	public String getRequiredPrimaryCashbackDetails(String requiredValue) {
 
@@ -927,6 +971,11 @@ public class StoreTestData extends TestSetUp{
 		String string = "";
 
 		switch (requiredValue) {
+		
+		case "storeOneVoucherOneName":
+
+			reportStep("str_Store_One_Voucher_One_Name: "+storeOneVoucherOneName, "INFO");
+			return storeOneVoucherOneName;
 
 		case "str_Store_One_Voucher_Two_Name":
 
@@ -1015,8 +1064,7 @@ public class StoreTestData extends TestSetUp{
 		switch(voucherOneName) {
 		case "storeOneVoucherOneName":
 			return storeOneVoucherOneName;
-		case "str_Store_One_Voucher_One_Name":
-			return storeOneVoucherOneName;
+		
 		}
 		return voucherOneName;
 

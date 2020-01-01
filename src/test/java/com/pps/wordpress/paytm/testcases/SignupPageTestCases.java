@@ -19,8 +19,35 @@ import utility.Utils;
  * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-3">Raise JIRA Issue Here</a>
  */
 public class SignupPageTestCases extends TestSetUp{
+	
+	
+	/**
+	 * Verify On clicking Sign UP link you are landed into Sign Up Form.
+	 *  Also verify Sign UP text with this.Verify placeholder value : Full Name:*,
+	 *  Email Address*,Choose Password*,Enter Mobile Number:* 
+	 *  Verify Sign Up Text for the button.
+	 */	
+	@Test(priority=1,enabled=true)
+	public void NavigateTosignupPageAndDefaultComponents() {
+		Log.info("Validation of PlaceHolder Value Of All Fields In SignUp PopUp Started -----");
+		reportStep("Validation of PlaceHolder Value Of All Fields In SignUp PopUp Started -----", "INFO");
+		new WPHomePage(driver, logger).
+		clickOnlblSignInSignUP().
+		clickOnlnkSignIn().
+		verifyTextOfSignUpTab().
+		clickSignUpTab().
+		verifyPlaceholderValueFullNameDuringSignUp().
+		verifyPlaceholderValuePasswordSignUp().
+		verifyEmailPlaceHolderValue().
+		verifyJoinWithEmailLabelSignUp().
+		verifyPlaceholderValueOfMobileNumberTextBoxSignUp(Utils.getTestData(1, "placeHolderMobileNumber"));
+		Log.info("Validation of PlaceHolder Value Of All Fields In SignUp PopUp Completed -----");
+		reportStep("Validation of PlaceHolder Value Of All Fields In SignUp PopUp Completed -----", "PASS");
 
-	/**Verify On clicking Sign UP link you are landed into Sign Up Form.
+	}
+	
+	/**
+	 * Verify On clicking Sign UP link you are landed into Sign Up Form.
 	 *  Also verify Sign UP text with this.Verify placeholder value : Full Name:*,
 	 *  Email Address*,Choose Password*,Enter Mobile Number:* 
 	 *  Verify Sign Up Text for the button.
@@ -46,29 +73,20 @@ public class SignupPageTestCases extends TestSetUp{
 
 	/**This method will verify successful Sign Up using correct credentials.
 	 * Enter Full Name, Mobile Number which should be unique, Email Id which should be unique and password.
+	 * @throws Exception 
 	 */
 	@Test(priority=2,enabled=true)
-	public void successFulSignUpUsingCorrectCredentials() {
-		Log.info("Validation of SignUp Successful Functionality Started -----");
-		reportStep("Validation of SignUp Successful Functionality Started -----", "INFO");
-		String email=Utils.generateRandomEmailId();
-		String password=Utils.getTestData(1, "password");
-		String mobile=Utils.generateRandomMobileNumber();
+	public void successFulSignUpUsingCorrectCredentials() throws Exception {
+		Log.info("Verify default components in signup page Started -----");
+		reportStep("Verify default components in signup page Started -----", "INFO");
+		
 		new WPHomePage(driver, logger).
 		clickOnlblSignInSignUP().
 		clickOnlnkSignIn().
 		clickSignUpTab().
-		enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
-		enterEmailIDDuringSignUp(email).
-		enterPasswordSignUp(password).
-		enterMobileNumberSignUp(mobile).
-		clickJoinWithEmailDuringSignUp().
-		enterOtpDuringSignUp(mobile).
-		clickVerifyOTP().
-		verifyPresenceOfMyAccountLabel().
-		refreshHomePage(driver);
-		Log.info("Validation of SignUp Successful Functionality Completed -----");
-		reportStep("Validation of SignUp Successful Functionality Completed -----", "PASS");
+		verifyFieldsPresentSignup();
+		Log.info("Verify default components in signup page Completed -----");
+		reportStep("Verify default components in signup page Completed -----", "PASS");
 
 	}
 
