@@ -22,7 +22,7 @@ import utility.Utils;
  *Pre-requisite: Amazon Store needs to be present on an environment where scripts will be executed.
  *
  */
-public class MissingCashBackPageTestCases extends TestSetUp{
+public class MissingCashBackPageTests extends TestSetUp{
 	
 	
 	/**
@@ -49,7 +49,7 @@ public class MissingCashBackPageTestCases extends TestSetUp{
 	 * <p>PreCondition: User must be guest
 	 */
 	
-	//@Test(priority=1)
+	@Test(priority=1)
 	public void VerifyDefaultComponentsofMissingCashbackPageBeforeExitClick()
 	{
 		
@@ -107,7 +107,7 @@ public class MissingCashBackPageTestCases extends TestSetUp{
 
 	 * <p>PreCondition: User must be guest
 	 */
-	//@Test(priority=1)
+	@Test(priority=2)
 	public void VerifyDefaultComponentsofViewTicketForm()
 	{
 		
@@ -178,7 +178,7 @@ public class MissingCashBackPageTestCases extends TestSetUp{
 	 * <p><strong>Verify pagination of ticket history</strong><dd> 
 	 * <p>PreCondition: User must be guest
 	 */
-	//@Test(priority=1)
+	@Test(priority=3)
 	public void VerifyPaginationinMissingCashbackPage
 	()
 	{
@@ -256,7 +256,7 @@ public class MissingCashBackPageTestCases extends TestSetUp{
 	 * status of the same ticket getting changed to Resolved.
 	 * @throws InterruptedException 
 	 */
-	@Test(priority=7,enabled=true)
+	@Test(priority=4,enabled=true)
 	public void verifyPhasesOfMissingCashBackTicketsForANewUser()  {
 		String started="Validation of Phases of Tickets for Missing Cashback ----- Started";
 		String completed="Validation of Phases of Tickets for Missing Cashback ----- Completed";
@@ -336,7 +336,7 @@ public class MissingCashBackPageTestCases extends TestSetUp{
 	 * in Missing CashBack Page.
 	 * @throws AWTException 
 	 */
-	//@Test(priority=9,enabled=true)
+	@Test(priority=5,enabled=true)
 	public void validateValuesOfDateRetailerNameTransactionAmountInMissingCashbackPage() throws AWTException {
 		String started="Validation of Successful Adding a Ticket for Missing Cashback ----- Started";
 		String completed="Validation of Successful Adding a Ticket for Missing Cashback ----- Completed";
@@ -401,7 +401,7 @@ public class MissingCashBackPageTestCases extends TestSetUp{
 	 * This method will validate View Ticket Summary functionality and User will send a query
 	 * in Missing CashBack Page.
 	 */
-	//@Test(priority=11,enabled=true)
+	@Test(priority=6,enabled=true)
 	public void validateViewTicketFunctionalityInbMissingCashbackPage() {
 		String started="Validation of Successful View Ticket Functionality ----- Started";
 		String completed="Validation of Successful View Ticket Functionality ----- Completed";

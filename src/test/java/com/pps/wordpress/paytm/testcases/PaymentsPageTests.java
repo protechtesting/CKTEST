@@ -18,7 +18,7 @@ import utility.Utils;
  *Also this will verify various pop up message which will appear on clicking this two buttons.
  */
 
-public class PaymentsPageRedirection extends TestSetUp{
+public class PaymentsPageTests extends TestSetUp{
 	/**
 	 * Verify whether the system navigates to payment page on clicking Request Cashback Payment button
 	 * Precondition:Cashback equals to or greater than Threshold.
@@ -97,7 +97,7 @@ public class PaymentsPageRedirection extends TestSetUp{
 	 * by clicking Request Cash back Payment button.
 	 * Precondition : User should have Rs 300 as cashback and Rs 300 as Rewards
 	 */
-	@Test(priority=8,enabled=true)
+	@Test(priority=3,enabled=true)
 	public void verifySuccessfulNavigationToPaymentFormByClickingRequestCashBackPaymentForNewUser() {
 		Log.info("Validation of successful payment processing by clicking Request cash back Payment button for New User.---- Started");
 		reportStep("Validation of successful payment processing by clicking Request cash back Payment button for New User .---- Started", "INFO");
@@ -132,7 +132,7 @@ public class PaymentsPageRedirection extends TestSetUp{
 	 * for a New User using Rewards Payment Processing method.
 	 * Precondition : Rewards=>250
 	 */
-	@Test(priority=11,enabled=true)
+	@Test(priority=4,enabled=true)
 	public void verifySuccessfulNavigationToPaymentFormViaPaymentPageByClickingRequestRewardPaymentForNewUser() {
 		Log.info("Validation of successful payment processing by clicking Request Rewards Payment button for New User.---- Started");
 		reportStep("Validation of successful payment processing by clicking Request Rewards Payment button for New User .---- Started", "INFO");
@@ -167,7 +167,7 @@ public class PaymentsPageRedirection extends TestSetUp{
 	 * than Threshold limit. Set Threshold= 250 & Cash back amount =249
 	 * Precondition : User should have Rs 249 Confirm Cashback. Threashhold limit should be Rs 250. User  Clicks Request Cashback Payment
 	 */
-	@Test(priority=4,enabled=true)
+	@Test(priority=5,enabled=true)
 	public void verifyUserIsUnableToProcessCashbackIfCashBackIsLessThanThresholdLimit() {
 		Log.info("Validation of Presence of Message \"PAYMENT THRESHOLD NOT REACHED\" for  Request Cash Back Payment via Payment Page.>---- Started");
 		reportStep("Validation of Presence of Message \"PAYMENT THRESHOLD NOT REACHED\" for Cash Back>---- Started", "INFO");
@@ -205,7 +205,7 @@ public class PaymentsPageRedirection extends TestSetUp{
 	 * Set Threshold= 250 & Rewards amount =249
 	 * Precondition : 
 	 */
-	@Test(priority=15,enabled=true)
+	@Test(priority=6,enabled=true)
 	public void verifyUserIsUnableToProcessRewardsIfRewardsIsLessThanThresholdLimit() {
 		String started="Validation of Presence of Pop Up Message \"PAYMENT THRESHOLD NOT REACHED\" for REQUEST Rewards BUTTON---- Started";
 		String completed="Validation of Presence of Pop Up Message \"PAYMENT THRESHOLD NOT REACHED\" for REQUEST Rewards BUTTON---- COMPLETED";
@@ -244,7 +244,7 @@ public class PaymentsPageRedirection extends TestSetUp{
 	 * Payment Processing Type should be Rewards.
 	 * Precondition : Rewards+Cashback=>Threshold. User Clicks Request Reward
 	 */
-	@Test(priority=15,enabled=true)
+	@Test(priority=7,enabled=true)
 	public void verifySuccessfulCombinedCashbackRewardsByClickingRequestRewardsPaymentInPaymentPageAndCombineRewardsPlusCashBackLinkBothValueGreater() {
 		String completed="Validation of successful payment processing by clicking Request Rewards Payment button for New user.---- COMPLETED";
 		String started="Validation of successful payment processing by clicking Request Rewards Payment button for New User.---- Started";
@@ -289,7 +289,7 @@ public class PaymentsPageRedirection extends TestSetUp{
 	 * User clicks on Combined Cash back + Rewards
 	 * Precondition : Rewards+Cashback=>Threshold. User Clicks Request Reward
 	 */
-	@Test(priority=16,enabled=true)
+	@Test(priority=8,enabled=true)
 	public void verifySuccessfulCombinedCashbackRewardsByClickingRequestCashbackPaymentInPaymentPageAndCombineRewardsPlusCashBackLinkCombineValueGreater() {
 		String started="Validation of successful Combine Rewards + Cashback Scenario By Clicking Request Cashback Payment And Combine Rewards+Cashback Button---- Started";
 		String completed="Validation of successful Combine Rewards + Cashback Scenario By Clicking Request Cashback Payment And Combine Rewards+Cashback Button---- COMPLETED";
@@ -334,7 +334,7 @@ public class PaymentsPageRedirection extends TestSetUp{
 	 * Payment Processing Type should be Rewards.
 	 * Precondition : Rewards=>250 Cashback=>250
 	 */
-	@Test(priority=14,enabled=true)
+	@Test(priority=9,enabled=true)
 	public void verifySuccessfulNavigationToPaymentFormViaPaymentPageByClickingCombinedCashbackRewardsAndRequestRewardsWhenBothPaymentTypeGreaterThanThreshold() {
 		Log.info("Validation of successful Combine Rewards + Cashback Scenario When Cashback & Rewards both Are Greater than Threshold.---- Started");
 		reportStep("Validation of successful Combine Rewards + Cashback Scenario When Cashback & Rewards both Are Greater than Threshold.---- Started", "INFO");
@@ -377,7 +377,7 @@ public class PaymentsPageRedirection extends TestSetUp{
 	 * Payment Processing Type should be Cash back.
 	 * Precondition : Rewards=>250 Cashback=>250
 	 */
-	@Test(priority=17,enabled=true)
+	@Test(priority=10,enabled=true)
 	public void verifySuccessfulNavigationToPaymentFormByClickingOnlyRedeemCashbackEarningsWhenBothPaymentTypeGreaterThanThreshold() {
 		String started="Validation of successful  payment processing for Only Redeem Cash back Earnings scenario When Cashback & Rewards both Are Greater than Threshold in Payment Page.-- Started";
 		String completed="Validation of successful  payment processing for Only Redeem Cash back Earnings scenario When Cashback & Rewards both Are Greater than Threshold in Payment Page.-- COMPLETED";
@@ -420,7 +420,7 @@ public class PaymentsPageRedirection extends TestSetUp{
 	 * Payment Processing Type should be Cash back.
 	 * Precondition : Rewards=>250 Cashback=>250
 	 */
-	@Test(priority=12,enabled=true)
+	@Test(priority=11,enabled=true)
 	public void verifyNavigationToPaymentFormByClickingOnlyRedeemRewardsEarningsWhenBothPaymentTypeGreaterThanThreshold() {
 		String started="Validation of successful successful navigation to Payment Form for Only Redeem Rewards Earnings scenario When Cashback & Rewards both Are Greater than Threshold.---- Started";
 		String completed="Validation of successful successful navigation to Payment Form for Only Redeem Rewards Earnings scenario When Cashback & Rewards both Are Greater than Threshold.---- COMPLETED";
@@ -466,7 +466,7 @@ public class PaymentsPageRedirection extends TestSetUp{
 	 * Precondition : A cashback Payment request is still pending
 	 */
 
-	@Test(priority=6,enabled=true)
+	@Test(priority=12,enabled=true)
 	public void verifyPaymentRequestAlreadyPendingMessageByClickingOnRequestCashbackPaymentInPaymentPage() {
 		Log.info("Validation of Payment Request is Already Pending By clicking on REQUEST CASHBACK PAYMENT---- Started");
 		reportStep("Validation of Payment Request is Already Pending By clicking on REQUEST CASHBACK PAYMENT---- Started", "INFO");
@@ -521,7 +521,7 @@ public class PaymentsPageRedirection extends TestSetUp{
 	 * User Logins and click "REQUEST REWARDS PAYMENT" Link in Payment Page.
 	 * Precondition : A cashback Payment request is still pending
 	 */
-	@Test(priority=5,enabled=true)
+	@Test(priority=13,enabled=true)
 	public void verifyPaymentRequestAlreadyPendingMessageByClickingOnRequestRewardsPaymentInPaymentPage() {
 		Log.info("Validation of Payment Request is Already Pending By clicking on REQUEST REWARDS PAYMENT---- Started");
 		reportStep("Validation of Payment Request is Already Pending By clicking on REQUEST REWARDS PAYMENT---- Started", "INFO");
@@ -566,7 +566,7 @@ public class PaymentsPageRedirection extends TestSetUp{
 	 * Rewards + Cash back less than Threshold. 
 	 * Precondition : User should Sign Up freshly
 	 */
-	@Test(priority=9,enabled=true)
+	@Test(priority=14,enabled=true)
 	public void verifyUserWillReceivePopUpErrorWhenTryingToNavigateToPaymentPageLeftNavLessThanThreshold() {
 		String start="Validation of Pop Up Error Message PAYMENT THRESHOLD NOT REACHED By Payment Menu in Home Page ---- Started";
 		String completed="Validation of Pop Up Error Message PAYMENT THRESHOLD NOT REACHED By Payment Menu in Home Page ---- completed";

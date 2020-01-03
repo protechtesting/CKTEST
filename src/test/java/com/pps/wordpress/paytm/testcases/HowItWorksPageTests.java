@@ -14,7 +14,7 @@ import utility.Utils;
  * <p>
  * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-11">Raise JIRA Issue Here</a>
  */
-public class HowItWorksPageTestcases extends TestSetUp{
+public class HowItWorksPageTests extends TestSetUp{
 	@Test(priority=1,enabled=true)
 	public void verifyHowItWorksPageContainsData() {
 		String start="Validation of How It Works Page ----- Started";

@@ -1,5 +1,7 @@
 package com.pps.wordpress.pages;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -181,6 +183,23 @@ public class WPSearchResultsPage extends TestSetUp{
 	@FindBy(name="search_store")
 	private static WebElement txtBxSearchStoreOrCoupons;
 	
+	
+	public WPSearchResultsPage verifyplaceholdervalue() {
+		try {
+			reportStep("Locating Search Bar in Header Section", "INFO");
+			Log.info("Locating Search Bar in Header Section");
+			if(txtBxSearchStoreOrCoupons.getAttribute("value").equals("Search Retailers or Coupons"))
+			{
+			reportStep("place holder value verified successfully", "PASS");
+			Log.info("place holder value verified successfully");
+			}
+		}catch(Exception e) {
+			Log.fatal("failed to verify placeholder value");
+			reportStep("failed to verify placeholder value", "FAIL");
+		}
+		return this;
+	}
+	
 	public WPSearchResultsPage searchForVoucherOrStore(String search) {
 		try {
 			reportStep("Locating Search Bar in Header Section", "INFO");
@@ -211,6 +230,48 @@ public class WPSearchResultsPage extends TestSetUp{
 		return element;
 	}
 	
+	
+	// To make this dynamic below approach has been used instead of page factory
+	public WebElement VerifySearchResultsAfterStoreInactive(String storeName) {
+		WebElement element = null;
+		try {
+			String locator="Successfully located First Store Image in Search Result Page";
+			System.out.println("(//a[@title='"+storeName +"'])[1]");
+			List<WebElement> elementslist =driver.findElement(By.xpath("(//a[@title='"+storeName +"'])[1]"));
+			if(elementslist.size()==0){
+				Log.info("Store InActive Verification completed");
+				reportStep("Store InActive Verification completed", "PASS");
+			}else {
+				Log.info("Store InActive Verification failed");
+				reportStep("Store InActive Verification failed", "FAIL");
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return element;
+	}
+	
+	
+	// To make this dynamic below approach has been used instead of page factory
+	public WebElement VerifySearchResultssuggestione(String storeName) {
+		WebElement element = null;
+		try {
+			String locator="Successfully located First Store Image in Search Result Page";
+			System.out.println("(//a[@title='"+storeName +"'])[1]");
+			List<WebElement> elementslist =driver.findElement(By.xpath("(//a[@title='"+storeName +"'])[1]"));
+			if(elementslist.size()>0){
+				Log.info("Seacrh result suggestion Verification completed");
+				reportStep("Seacrh result suggestion Verification completed", "PASS");
+			}else {
+				Log.info("Seacrh result suggestion Verification failed");
+				reportStep("Seacrh result suggestion Verification failed", "FAIL");
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return element;
+	}
+	
 	public WPStorePage clickOnStoreImage(String storeName) {
 		String pass="Successfully clicked on first Store Card Image in Search Result Page to Navigate to Store Page";
 		String fail="Unable to click at first Store Card Image in Search Result Page";
@@ -223,6 +284,53 @@ public class WPSearchResultsPage extends TestSetUp{
 		}
 		return new WPStorePage(driver, logger);
 	}
+	
+	
+	
+	@FindBy(xpath="//strong[contains(text(),'No results']")
+	private static WebElement txtNoResults;
+	
+	
+	public WPSearchResultsPage verifyNoresultsFound(String storeName) {
+		String locator="Locating no results found";
+		String pass="No results found is verified successfully";
+		String fail="Failure to verify No Results found";
+		Log.info(locator);
+		reportStep(locator, "INFO");
+		
+		if(txtNoResults.isDisplayed()) {
+			Log.info(fail);
+			reportStep(fail, "FAIL");
+		}else {
+			Log.info(pass);
+			reportStep(pass, "PASS");
+		}
+		return this;
+	}
+	
+	
+	
+	@FindBy(xpath="//div[@class='no_voucher']")
+	private static WebElement txtNoCoupons;
+	
+	
+	public WPSearchResultsPage verifyNoCouponsFound(String storeName) {
+		String locator="Locating no voucher found";
+		String pass="No voucher found is verified successfully";
+		String fail="Failure to verify No voucher found";
+		Log.info(locator);
+		reportStep(locator, "INFO");
+		
+		if(txtNoCoupons.isDisplayed()) {
+			Log.info(fail);
+			reportStep(fail, "FAIL");
+		}else {
+			Log.info(pass);
+			reportStep(pass, "PASS");
+		}
+		return this;
+	}
+	
 	
 	public WPSearchResultsPage verifyInactiveStoreNotDisplayingInSearchResultPage(String storeName) {
 		String locator="Locating Inactive Store in Search Result Page";
@@ -318,5 +426,26 @@ public class WPSearchResultsPage extends TestSetUp{
 		}
 		return this;
 	}
+	
+	@FindBy(xpath = "//div[@class='container search_main']/div/h2")
+	private static WebElement SearchResultShortDesc;
+	
+	public WPSearchResultsPage VerifySearchResultShortdesc(String desc){
+		Log.info("Trying verify searchresult short desc");
+		reportStep("Trying verify searchresult short des","INFO");
+		
+		String s = "Results for your search "+desc;
+		if(SearchResultShortDesc.equals(s)) {
+			Log.info("verify searchresult short des pass");
+			reportStep("verify searchresult short desc pass","PASS");
+		}else {
+			Log.info("Unable verify searchresult short des");
+			reportStep("Unableverify searchresult short des","FAIL");
+		}
+		return this;
+	}
+	
+	
+	
 	
 }

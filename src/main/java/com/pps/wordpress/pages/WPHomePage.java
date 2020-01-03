@@ -17,13 +17,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.Utils;
-import utility.WrapperMethods;
+import utility.Seleniumbase;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import utility.TestSetUp;
 import utility.Log;
 
-public class WPHomePage extends WrapperMethods {
+public class WPHomePage extends Seleniumbase {
 	Boolean presence;
 	public static final Logger log = LogManager.getLogger(WPHomePage.class);
 	private static String subCategory = Utils.getTestData(0, "subCategory");
@@ -48,6 +48,9 @@ public class WPHomePage extends WrapperMethods {
 			Log.error("Not able to land on the Home page");
 		}
 	}
+	
+	
+
 
 	@FindBy(id = "lblPopularRetailersHead")
 	private static WebElement popularRetailersection;

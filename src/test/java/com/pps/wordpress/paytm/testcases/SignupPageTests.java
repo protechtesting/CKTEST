@@ -18,7 +18,7 @@ import utility.Utils;
  * <p>
  * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-3">Raise JIRA Issue Here</a>
  */
-public class SignupPageTestCases extends TestSetUp{
+public class SignupPageTests extends TestSetUp{
 	
 	
 	/**
@@ -52,7 +52,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 *  Email Address*,Choose Password*,Enter Mobile Number:* 
 	 *  Verify Sign Up Text for the button.
 	 */	
-	@Test(priority=1,enabled=true)
+	@Test(priority=2,enabled=true)
 	public void verifyPlaceHolderValueOfAllFieldsInSignUpPopUp() {
 		Log.info("Validation of PlaceHolder Value Of All Fields In SignUp PopUp Started -----");
 		reportStep("Validation of PlaceHolder Value Of All Fields In SignUp PopUp Started -----", "INFO");
@@ -70,12 +70,107 @@ public class SignupPageTestCases extends TestSetUp{
 		reportStep("Validation of PlaceHolder Value Of All Fields In SignUp PopUp Completed -----", "PASS");
 
 	}
+	
+	
+	
+	/**
+	 * <p><strong>Verify charecter allowance in signup page fields</strong><dd> 
+	 * PreCondition: Guest User
+	 */
+	@Test(priority=3)
+	public void verifyAlphaNumericSpecialAllowanceInLoginWindowfields()throws Exception {
+		try {
+			reportStep("Verify charecter allowance in signup page fields started", "INFO");
+			Log.info("Verify charecter allowance in signup page fields started");
+			new WPHomePage(driver, logger).
+			clickOnlblSignInSignUP().
+			clickOnlnkSignIn().verifyCharecterAllowancePositiveScenarioSignUP();
+		  			
+			reportStep("Verify charecter allowance in signup page fields completed", "PASS");
+			Log.info("Verify charecter allowance in signup page fields completed");
+		}catch(Exception e) {
+			Log.error("Failed Verify charecter allowance in signup page fields");
+			reportStep("Failed Verify charecter allowance in signup page fields", "FAIL");
+			throw e;
+		}
+	}
+	
+	
+	/**
+	 * <p><strong>Verification of Charecter not allowance in SignUp Page fields</strong><dd> 
+	 * PreCondition: Guest User
+	 */
+	@Test(priority=4)
+	public void verifyCharecterNotAllowanceInSignUpfields()throws Exception {
+		try {
+			reportStep("Verification of Charecter not allowance in SignUp Page fields started", "INFO");
+			Log.info("Verification of Charecter not allowance in SignUp Page fields started");
+			new WPHomePage(driver, logger).
+			clickOnlblSignInSignUP().
+			clickOnlnkSignIn().verifyCharecterNotAllowanceNegativeScenarioSignUP();
+		  			
+			reportStep("Verification of Charecter not allowance in SignUp Page fieldss completed", "PASS");
+			Log.info("Verification of Charecter not allowance in SignUp Page fields completed");
+		}catch(Exception e) {
+			Log.error("Failed to Verifify  Charecter not allowance in SignUp Page fields");
+			reportStep("Failed to Verifify  Charecter not allowance in SignUp Page fields", "FAIL");
+			throw e;
+		}
+	}
+	
+	/**
+	 * <p><strong>Verify max length for Email ID and Password, Full Name, phone number Text boxes</strong><dd> 
+	 * PreCondition: Guest User
+	 */
+	
+	@Test(priority=5)
+	public void verifyMaxLengthforLoginWindowfields()throws Exception {
+		try {
+			reportStep("Verification of field length in signupage started", "INFO");
+			Log.info("Verification of of field length in Email and Password Textboxes started");
+			new WPHomePage(driver, logger).
+			clickOnlblSignInSignUP().
+			clickOnlnkSignIn().VerifyFieldLengthSignUP();
+		  			
+			reportStep("Verification of of field length in signupage completed", "PASS");
+			Log.info("Verification of field length in signupages completed");
+		}catch(Exception e) {
+			Log.error("Verification of field length in signupage failed");
+			reportStep("Verification of field length in in signupage failed", "FAIL");
+			throw e;
+		}
+	}
+	
+	/**
+	 * <p><strong>Verify copy paste  allowance in Email ID and Password Text boxes</strong><dd> 
+	 * PreCondition: Guest User
+	 */
+	
+	@Test(priority=6)
+	public void verifyCopyPasteAllowanceInSignupPageFields()throws Exception {
+		try {
+			reportStep("Verification of copy paste allowance in Email and Password Textboxes started", "INFO");
+			Log.info("Verification of copy paste allowance in Email and Password Textboxes started");
+			new WPHomePage(driver, logger).
+			clickOnlblSignInSignUP().
+			clickOnlnkSignIn().VerifyCopyPasteAllowanceSignUP();
+		  			
+			reportStep("Verification of copy paste allowance in Email and Password Textboxes completed", "PASS");
+			Log.info("Verification of copy paste allowance in Email and Password Textboxes completed");
+		}catch(Exception e) {
+			Log.error("Verification of copy paste allowance in Email and Password Textboxes completed Unsuccessfully");
+			reportStep("Verification of copy paste allowance in Email and Password Textboxes completed Unsuccessfully", "FAIL");
+			throw e;
+		}
+	}
+	
+	
 
 	/**This method will verify successful Sign Up using correct credentials.
 	 * Enter Full Name, Mobile Number which should be unique, Email Id which should be unique and password.
 	 * @throws Exception 
 	 */
-	@Test(priority=2,enabled=true)
+	@Test(priority=7,enabled=true)
 	public void successFulSignUpUsingCorrectCredentials() throws Exception {
 		Log.info("Verify default components in signup page Started -----");
 		reportStep("Verify default components in signup page Started -----", "INFO");
@@ -92,7 +187,7 @@ public class SignupPageTestCases extends TestSetUp{
 
 	/**Below method will verify Error messages for Mobile Number Field
 	 */
-	@Test(priority=3,enabled=true)
+	@Test(priority=8,enabled=true)
 	public void verifyErrorMessageAndNegativeScenariosForMobileFieldInSignUp() {
 		Log.info("Validation of All Negative Scenarios For Mobile Number Fields In SignUp PopUp Started -----");
 		reportStep("Validation of All Negative Scenarios For Mobile Number Fields In SignUp PopUp Started -----", "INFO");
@@ -113,7 +208,7 @@ public class SignupPageTestCases extends TestSetUp{
 
 	/**Below method will verify Terms and condition page and its functionality
 	 */
-	@Test(priority=4,enabled=true)
+	@Test(priority=9,enabled=true)
 	public void verifyTermsAndConditionsFunctionalitySignUp() {
 		Log.info("Validation of Terms and Conditions Functionality In SignUp PopUp Started -----");
 		reportStep("Validation of Terms and Conditions Functionality  In SignUp PopUp Started -----", "INFO");
@@ -130,7 +225,7 @@ public class SignupPageTestCases extends TestSetUp{
 
 	/**Below message will verify Format of email id which should not be accepted
 	 */
-	@Test(priority=7,enabled=true)
+	@Test(priority=10,enabled=true)
 	public void verifyFormatOfEmailIdInSignUpForm() {
 		Log.info("Validation of Format of email id accepted In SignUp PopUp Started -----");
 		reportStep("Validation of Format of email id accepted In SignUp PopUp Started -----", "INFO");
@@ -156,7 +251,7 @@ public class SignupPageTestCases extends TestSetUp{
 
 	/**Below method will verify error message for full name
 	 */
-	@Test(priority=4,enabled=true)
+	@Test(priority=11,enabled=true)
 	public void verifyNegativeCasesOfFullNameInSignUpForm() {
 		Log.info("Validation of Full Name Format In SignUp PopUp Started -----");
 		reportStep("Validation of Full Name Format In SignUp PopUp Started -----", "INFO");
@@ -180,7 +275,7 @@ public class SignupPageTestCases extends TestSetUp{
 
 	/**Below method will verify negative scenarios for password field
 	 */
-	@Test(priority=5,enabled=true)
+	@Test(priority=12,enabled=true)
 	public void verifyMaxAndMinLengthOfPasswordFieldInSignUp() {
 		String password=Utils.getTestData(2, "minCharPassword1");
 		Log.info("Validation of Minimum and maximum length Password Field In SignUp PopUp Started -----");
@@ -201,7 +296,7 @@ public class SignupPageTestCases extends TestSetUp{
 
 	/**Verify Error Message while Sign Up with email id which are already registered in SIGN IN /SIGN UP TAB
 	 */
-	@Test(priority=6,enabled=true)
+	@Test(priority=13,enabled=true)
 	public void verifyErrorMsgInCaseEmailAlreadyExist() {
 		Log.info("Validation of Error Message if user email is already registered In SignUp PopUp Started -----");
 		reportStep("Validation of Error Message if user email is already registered In SignUp PopUp Started -----", "INFO");
@@ -227,7 +322,7 @@ public class SignupPageTestCases extends TestSetUp{
 	/** Verify If user is using existing email id for sign up, on submitting OTP, user should be navigated to Sign UP form and form will
   be refilled. Password field will be reset to default. All other values entered by user will be preserved.
 	 */
-	@Test(priority=26,enabled=true)
+	@Test(priority=14,enabled=true)
 	public void verifySignUpFormWillBeRefilledDuringSignUpIfEmailIdAlreadyRegistered() {
 		Log.info("Validation of Sign Up Form Reset To Default if user email is already registered In SignUp PopUp Started -----");
 		reportStep("Validation of Sign Up Form Reset To Default if user email is already registered In SignUp PopUp Started -----", "INFO");
@@ -257,7 +352,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * edit the the OTP text box when the navigation is through Sign UP Form 
 	 */
 
-	@Test(priority=14,enabled=true)
+	@Test(priority=15,enabled=true)
 	public void verifyErrorMessageForIncorrectOtpReenterCorrectOtp() {
 		String otp="123456";
 		Log.info("Validation of Invalid OTP Error message In SignUp PopUp Started -----");
@@ -287,7 +382,7 @@ public class SignupPageTestCases extends TestSetUp{
 	/**
 	 * Verify Error message while login by entering phone number which is already registered in SIGN IN/ SIGN UP Tab
 	 */
-	@Test(priority=10,enabled=true)
+	@Test(priority=16,enabled=true)
 	public void verifyErrorMsgIfPhoneNumberIsAlreadyRegistered() {
 		Log.info("Validation of Error Message if user Phone is already registered In SignUp PopUp Started -----");
 		reportStep("Validation of Error Message if user Phone is already registered In SignUp PopUp Started -----", "INFO");
@@ -311,7 +406,7 @@ public class SignupPageTestCases extends TestSetUp{
 	/**
 	 * Verify Reset functionality during SIGN UP  By closing pop up
 	 */
-	@Test(priority=10,enabled=true)
+	@Test(priority=17,enabled=true)
 	public void verifyResetFunctionalityByClosingPopUp() throws Exception {
 		reportStep("Verification of Reset Functionality Of Sign Up Pop Up started", "PASS");
 		Log.info("Verification of Reset Functionality Of Sign Up Pop Up started");
@@ -333,7 +428,7 @@ public class SignupPageTestCases extends TestSetUp{
 	/**
 	 * Verify Reset functionality during SIGN UP  By Switching Tabs
 	 */
-	@Test(priority=11,enabled=true)
+	@Test(priority=18,enabled=true)
 	public void verifyResetFunctionalityBySwitchingTabsInSignUp() throws Exception {
 		reportStep("Verification of Reset Functionality Of Sign Up Pop Up started", "PASS");
 		Log.info("Verification of Reset Functionality Of Sign Up Pop Up started");
@@ -357,7 +452,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * @throws InterruptedException 
 	 */
 	
-	@Test(priority=27,enabled=true)
+	@Test(priority=19,enabled=true)
 	public void verifyResendCodeFunctionalityAndLabelEnterOtpThroughSignUpForm() throws InterruptedException {
 		Log.info("Validation of Resend OTP Functionality Started -----");
 		reportStep("Validation of Resend OTP Functionality Started -----", "INFO");
@@ -387,7 +482,7 @@ public class SignupPageTestCases extends TestSetUp{
 	/**
 	 * Verify on closing OTP Pop up user navigate back to Sign up Form and except Password field, all other retains the value entered by user
 	 */
-	@Test(priority=16,enabled=true)
+	@Test(priority=20,enabled=true)
 	public void verifyOnClosingOtpPopUpOnlyPasswordFieldIsNotRetained() {
 		Log.info("Validation of Resend OTP Functionality Started -----");
 		reportStep("Validation of Resend OTP Functionality Started -----", "INFO");
@@ -413,7 +508,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 *  Verify Sign up functionality by clicking on image in  category page to navigate to Store Page and then clicking on Main CTA.
 	 *  Home page ->HamburgerMenu->Select_A_Category->ClickOnImage->Store_Page-> Click on Main CTA (Activate button)-> Successful Sign Up
 	 */
-	@Test(priority=19,enabled=true) //https://paytmcashback.com is not working will execute and this method will be tested once the site is UP
+	@Test(priority=21,enabled=true) //https://paytmcashback.com is not working will execute and this method will be tested once the site is UP
 	public void successfulSignUpViaMainCategoryAndMainCTA() throws Exception{
 		try {
 			String category=Utils.getTestData(1, "category");
@@ -452,7 +547,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * @throws Exception
 	 */
 
-	@Test(priority=20,enabled=true)//https://paytmcashback.com is down, will execute and test method once the site is UP
+	@Test(priority=22,enabled=true)//https://paytmcashback.com is down, will execute and test method once the site is UP
 	public void successfulSignUpViaMainCategoryAndStoreCardCTA() throws Exception{
 		try {
 			String category=Utils.getTestData(1, "category");
@@ -490,7 +585,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * @throws Exception
 	 */
 
-	@Test(priority=18,enabled=true)//https://paytmcashback.com is down, will execute and test method once the site is UP
+	@Test(priority=23,enabled=true)//https://paytmcashback.com is down, will execute and test method once the site is UP
 	public void successfulSignUpViaMainCategoryAndVoucherCTA() throws Exception{
 		try {
 			String category=Utils.getTestData(1, "category");
@@ -528,7 +623,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * @throws Exception
 	 */
 
-	@Test(priority=22,enabled=true)
+	@Test(priority=24,enabled=true)
 	public void successfulSignUpViaSearchAndStoreCardActivateCashBack() throws Exception{
 		try {
 			reportStep("Validation of Successful SignUp Through Search Functionality and Voucher CTA started", "INFO");
@@ -563,7 +658,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * HomePage->SearchStore->ClickOnVoucherCardButton(Activate Cashback)->Successful Login.Upon Successful Sign UP , reload the current page. 
 	 * @throws Exception
 	 */
-	@Test(priority=23,enabled=true)
+	@Test(priority=25,enabled=true)
 	public void successfulSignUpViaSearchAndVoucherCardActivateCashBack() throws Exception{
 		try {
 			String itemToBeSearched=Utils.getTestData(2, "searchStore");
@@ -598,7 +693,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * @throws Exception
 	 */
 
-	@Test(priority=21,enabled=true)
+	@Test(priority=26,enabled=true)
 	public void successfulSignUpViaViewAllFunctionalityStoreCardCTAForRetailer() throws Exception{
 		try {
 			String itemToBeSearched=Utils.getTestData(0, "searchStoreViewAll");
@@ -633,7 +728,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Verify successful sign up by searching voucher and then clicking view all link and store card CTA button
 	 * @throws Exception
 	 */
-	@Test(priority=22,enabled=true)
+	@Test(priority=27,enabled=true)
 	public void successfulSignUpViaViewAllFunctionalityStoreCardCTAForVoucher() throws Exception{
 		try {
 			String itemToBeSearched=Utils.getTestData(2, "searchVoucherViewAll");
@@ -670,7 +765,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Verify successful sign up by clicking on store card activate sign up on Home Page
 	 * @throws Exception
 	 */
-	@Test(priority=23,enabled=true)
+	@Test(priority=28,enabled=true)
 	public void successfulSignUpViaHomePageStoreCardActivateCashBackLink() throws Exception{
 		try {
 			String email=Utils.generateRandomEmailId();
@@ -702,7 +797,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Verify Sign Up functionality by clicking on image on home page and then clicking on Main CTA in Store Page
 	 * @throws Exception
 	 */
-	@Test(priority=16,enabled=true)
+	@Test(priority=29,enabled=true)
 	public void successfulSignUpViaHomePageImageMainCTA() throws Exception{
 		try {
 			reportStep("Validation of Sign Up Through Search Functionality and Voucher CTA started", "PASS");
@@ -733,7 +828,7 @@ public class SignupPageTestCases extends TestSetUp{
 	/**
 	 * Verify Sign Up functionality by clicking on image on home page and then clicking on Voucher CTA in Store Page
 	 */
-	@Test(priority=17,enabled=true)
+	@Test(priority=30,enabled=true)
 	public void successfulSignUpViaHomePageImageVoucherCTA(){
 		try {
 			reportStep("Validation of Successful Sign Up Through Search Functionality and Voucher CTA started", "PASS");
@@ -768,7 +863,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Verify Sign Up Text for the button.
 	 */
 
-	@Test(priority=28,enabled=true)
+	@Test(priority=31,enabled=true)
 	public void verifyPlaceHolderValueOfAllFieldsInjoinFreePage() {
 		Log.info("Validation of PlaceHolder Value Of All Fields In join Free Page Started -----");
 		reportStep("Validation of PlaceHolder Value Of All Fields In join Free Page Started -----", "INFO");
@@ -790,7 +885,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Refresh the Page and again verify.
 	 */
 
-	@Test(priority=8,enabled=true)
+	@Test(priority=32,enabled=true)
 	public void successFulSignUpUsingCorrectCredentialsInJoinFreePage() {
 		Log.info("Validation of SignUp Successful Functionality Started -----");
 		reportStep("Validation of SignUp Successful Functionality Started -----", "INFO");
@@ -821,7 +916,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 */
 
 
-	@Test(priority=23,enabled=true)
+	@Test(priority=33,enabled=true)
 	public void verifyErrorMessageAndNegativeScenariosForMobileFieldInjoinFree() {
 		Log.info("Validation of All Negative Scenarios For Mobile Number Fields In join Free Page Started -----");
 		reportStep("Validation of All Negative Scenarios For Mobile Number Fields In join Free Page Started -----", "INFO");
@@ -843,7 +938,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Verify Terms and Conditions text and link. On clicking the link a new Tab should open. Verify Page Title of Tems and Condition Page
 	 */
 
-	@Test(priority=24,enabled=true)
+	@Test(priority=34,enabled=true)
 	public void verifyTermsAndConditionsFunctionalityJoinFreePage() {
 		Log.info("Validation of Terms and Conditions Functionality In Join Free Page Started -----");
 		reportStep("Validation of Terms and Conditions Functionality  In Join Free Page Started -----", "INFO");
@@ -861,7 +956,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Verify error for email : "Please enter a valid email". Click on the text box and then click some where else. User will see this error.
 	 * Verify the format of email id in Join Free Page
 	 */
-	@Test(priority=5,enabled=true)
+	@Test(priority=35,enabled=true)
 	public void verifyFormatOfEmailIdInJoinFreePage() {
 		Log.info("Validation of Format of email id accepted In Join Free Page Started -----");
 		reportStep("Validation of Format of email id accepted In Join Free Page Started -----", "INFO");
@@ -890,7 +985,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 *  special char, empty value prefixs suffix space  etc.
 	 */
 
-	@Test(priority=24,enabled=true)
+	@Test(priority=36,enabled=true)
 	public void verifyNegativeCasesOfFullNameInjoinFreePage() {
 		Log.info("Validation of Full Name Format In Join Free Page Started -----");
 		reportStep("Validation of Full Name Format In Join Free Page Started -----", "INFO");
@@ -917,7 +1012,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Verify maximum character for password field using Join Free Page
 	 */
 	//Below method will verify negative scenarios for password field
-	@Test(priority=25,enabled=true)
+	@Test(priority=37,enabled=true)
 	public void verifyMaxAndMinLengthOfPasswordFieldInJoinFree() {
 		String password=Utils.getTestData(2, "minCharPassword1");
 		Log.info("Validation of Minimum and maximum length Password Field In Join Free Page Started -----");
@@ -939,7 +1034,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Verify Error Message while Sign Up with email id which are already registered in Join Free Page
 	 */
 
-	@Test(priority=25,enabled=true)
+	@Test(priority=38,enabled=true)
 	public void verifyErrorMsgInCaseEmailAlreadyExistJoinFreePage() {
 		Log.info("Validation of Error Message if user email is already registered In Join Free Page Started -----");
 		reportStep("Validation of Error Message if user email is already registered In Join Free Page Started -----", "INFO");
@@ -965,7 +1060,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Verify If user is using existing email id for sign up, on submitting OTP, user should be navigated toJoin Free Page and form should be refilled.
 	 */
 
-	@Test(priority=26,enabled=true)
+	@Test(priority=39,enabled=true)
 	public void verifyJoinFreeWillBeRefilledDuringSignUpIfEmailIdAlreadyRegistered() {
 		Log.info("Validation of Join Free Page Reset To Default if user email is already registered In Join Free Page Started -----");
 		reportStep("Validation of Join Free Page Reset To Default if user email is already registered In Join Free Page Started -----", "INFO");
@@ -994,7 +1089,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Verify after entering incorrect OTP , user should be able to edit the the OTP text box when the navigation is through Join Free Page
 	 */
 
-	@Test(priority=24,enabled=true)
+	@Test(priority=40,enabled=true)
 	public void verifyErrorMessageForIncorrectOtpReenterCorrectOtpJoinFree() {
 		String otp="123456";
 		Log.info("Validation of Error Message when user enters incorrect OTP Started -----");
@@ -1026,7 +1121,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Verify Error message while login by entering phone number which is already registered in Join Free Page
 	 */
 
-	@Test(priority=9,enabled=true)
+	@Test(priority=41,enabled=true)
 	public void verifyErrorMsgIfPhoneNumberIsAlreadyRegisteredJoinFree() {
 		Log.info("Validation of Error Message if user Phone is already registered In Join Free Page Started -----");
 		reportStep("Validation of Error Message if user Phone is already registered In Join Free Page Started -----", "INFO");
@@ -1052,7 +1147,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * @throws Exception
 	 */
 
-	@Test(priority=10,enabled=true)
+	@Test(priority=42,enabled=true)
 	public void verifyResetFunctionalityOfJoinFreePage() throws Exception {
 		reportStep("Validation of Reset Functionality Of Join Free Page started", "PASS");
 		Log.info("Validation of Reset Functionality Of Join Free Page started");
@@ -1078,7 +1173,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * @throws Exception 
 	 */
 
-	@Test(priority=30,enabled=true)
+	@Test(priority=43,enabled=true)
 	public void verifyResendCodeFunctionalityAndLabelEnterOtpThroughJoinFree() throws Exception {
 		Log.info("Validation of Resend OTP Functionality Join Free Page Started -----");
 		reportStep("Validation of Resend OTP Functionality Join Free Page Started -----", "INFO");
@@ -1110,7 +1205,7 @@ public class SignupPageTestCases extends TestSetUp{
 	 * Verify on closing OTP Pop up user navigate back to Sign up Form and except Password field , all other retains the value entered by user
 	 */
 
-	@Test(priority=25,enabled=true)
+	@Test(priority=44,enabled=true)
 	public void verifyOnClosingOtpPopUpOnlyPasswordFieldIsNotRetainedJoinFree() {
 		Log.info("Validation of Closing OTP Pop Up Functionality in Join Free Page Started -----");
 		reportStep("Validation of Closing OTP Pop Up Functionality in Join Free Page Started -----", "INFO");

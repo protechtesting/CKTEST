@@ -20,7 +20,7 @@ import utility.Utils;
  * <p>
  * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-6">Raise JIRA Issue Here</a>
  */
-public class ContactUsPageTestcases extends TestSetUp{
+public class ContactUsPageTests extends TestSetUp{
 	
 	/**
 	 * For Guest User:
@@ -224,7 +224,7 @@ public class ContactUsPageTestcases extends TestSetUp{
 	 * and then click on search bar at header.
 	 * Precondition : User Not registered
 	 */
-	@Test(priority=3,enabled=true)
+	@Test(priority=10,enabled=true)
 	public void GU_verifyErrorMessageForDropDownWhenUserClickDropDownAndClickSowmewhereElse(){
 		Log.info("Validation of Error Messages when Guest User s click on \"Select from List below\" and then click on search bar started-----");
 		reportStep("Validation of Error Messages when Guest User s click on \"Select from List below\" and then click on search bar started-----", "INFO");
@@ -247,7 +247,7 @@ public class ContactUsPageTestcases extends TestSetUp{
 	 * 
 	 */
 	
-	@Test(priority=10,enabled=true)
+	@Test(priority=11,enabled=true)
 	public void GU_verifyNegativeCasesForFullNameInContactUsPage() {
 		Log.info("Validation of Full Name Format In Contact Us Page Started -----");
 		reportStep("Validation of Full Name Format In Contact Us  Page Started -----", "INFO");
@@ -272,7 +272,7 @@ public class ContactUsPageTestcases extends TestSetUp{
 	 * This method will verify full name, email and message body is editable and enabled for Guest User.
 	 * Precondition : User Not registered
 	 */
-	@Test(priority=11,enabled=true)
+	@Test(priority=12,enabled=true)
 	public void GU_verifyNameEmailAndMessageIsEnabledAndEditable() {
 		Log.info("Validation of Full Name, Email and Message body enability and Editability in Contact Us Page Started -----");
 		reportStep("Validation of Full Name, Email and Message body enability and Editability in Contact Us Page Started -----", "INFO");
@@ -307,7 +307,7 @@ public class ContactUsPageTestcases extends TestSetUp{
 	 * about user concerns and click on Submit button on Contact Us Page For Guest User.
 	 * Precondition : User Not registered
 	 */
-	@Test(priority=12,enabled=true)
+	@Test(priority=13,enabled=true)
 	public void GU_verifySubmitionOfContactUsFormBySelectingGeneralQueries() {
 		Log.info("Validation of Submission of Contact Us Form By Selecting General Queries in Contact Us Page Started -----");
 		reportStep("Validation of Submission of Contact Us Form By Selecting General Queries in Contact Us Page Started ----- -----", "INFO");
@@ -332,7 +332,7 @@ public class ContactUsPageTestcases extends TestSetUp{
 	 * about user concerns and click on Submit button on Contact Us Page For Guest User.
 	 * Precondition : User Not registered
 	 */
-	@Test(priority=13,enabled=true)
+	@Test(priority=14,enabled=true)
 	public void GU_verifySubmitionOfContactUsFormBySelectingOtherInDropDown() {
 		Log.info("Validation of Submission of Contact Us Form By Selecting \"OTHER\" in Contact Us Page Started -----");
 		reportStep("Validation of Submission of Contact Us Form By Selecting \"OTHER\" in Contact Us Page Started -----", "INFO");
@@ -356,7 +356,7 @@ public class ContactUsPageTestcases extends TestSetUp{
 	 * about user concerns and click on Submit button on Contact Us Page For Guest User.
 	 * Precondition : User Not registered
 	 */
-	@Test(priority=14,enabled=true)
+	@Test(priority=15,enabled=true)
 	public void GU_verifySubmitionOfContactUsFormBySelectingCashbackIncorrectOrMissing() {
 		Log.info("Validation of Submission of Contact Us Form By Selecting \"My cashback is incorrect or missing\" in Contact Us Page Started -----");
 		reportStep("Validation of Submission of Contact Us Form By Selecting \"My cashback is incorrect or missing\" in Contact Us Page Started -----", "INFO");

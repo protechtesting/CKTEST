@@ -17,7 +17,7 @@ import utility.Utils;
  * <p>
  * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-5">Raise JIRA Issue Here</a>
  */
-public class AccountSettingsPageTestCases extends TestSetUp{
+public class AccountSettingsPageTests extends TestSetUp{
 
 	/**
 	 * This method will verify --On clicking Account Settings, User is Navigated to Account Settings Page &
@@ -62,7 +62,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	 */
 
 
-	@Test(priority=3,enabled=true)
+	@Test(priority=2,enabled=true)
 	public void verifyTextOfTabsUnderAccountSettingsAndTabsAreClickable() {
 		Log.info("Validation of Personal and Change Password Tabs started---------");
 		reportStep("Validation of Personal and Change Password Tabs started---------", "INFO");
@@ -89,7 +89,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	 * "NOTE : To change your email/mobile number please write to dev@pouringpounds.com". Verify Text of SAVE CHANGES button.
 	 */
 
-	@Test(priority=4,enabled=true)
+	@Test(priority=3,enabled=true)
 	public void verifyTextOfBothTabsComponentsInAccountSettingsPage() {
 		Log.info("Validation of text of Personal and Change Password Tab's Components started---------");
 		reportStep("Validation of text of Personal and Change Password Tab's Components started---------", "INFO");
@@ -126,7 +126,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	 * The fullname may not be greater than 50 characters
 	 */
 	
-	@Test(priority=6,enabled=true)
+	@Test(priority=4,enabled=true)
 	public void verifyEmailAndMobileNumberTextBoxIsDisable() {
 		Log.info("Validation of text of Personal and Change Password Tab's Components started---------");
 		reportStep("Validation of text of Personal and Change Password Tab's Components started---------", "INFO");
@@ -152,7 +152,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	 *  Verify user is able to change full name and save it
 	 */
 	
-	@Test(priority=7,enabled=true)
+	@Test(priority=5,enabled=true)
 	public void changeFullNameInPersonalDetailsTab() {
 		Log.info("Validation of text of Personal and Change Password Tab's Components started---------");
 		reportStep("Validation of text of Personal and Change Password Tab's Components started---------", "INFO");
@@ -177,7 +177,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	/**
 	 * This method will verify error message for full name
 	 */
-	@Test(priority=8,enabled=true)
+	@Test(priority=6,enabled=true)
 	public void verifyErrorMessageForFullName() {
 		Log.info("Validation of Error Messages For Full Name started---------");
 		reportStep("Validation of Error Messages For Full Name started---------", "INFO");
@@ -202,7 +202,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	 * This method will change current password
 	 */
 	
-	@Test(priority=11,enabled=true)
+	@Test(priority=7,enabled=true)
 	public void verifyChangePasswordFunctionality() {
 		Log.info("Validation of Change Password Functionality started---------");
 		reportStep("Validation of Change Password Functionality started---------", "INFO");
@@ -231,7 +231,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	 * This method will verify all Error Messages present in Change Password Tab by clicking on 
 	 * SAVE CHANGES BUTTON DIRECTLY.
 	 */
-	@Test(priority=12,enabled=true)
+	@Test(priority=8,enabled=true)
 	public void verifyErrorMessageInChangePasswordTabByClickingOnSaveButtonDirectly() {
 		Log.info("Validation of All Error Messages In Change Password TAB started---------");
 		reportStep("Validation of All Error Messages In Change Password TAB started---------", "INFO");
@@ -258,7 +258,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	 * This method will verify Error Message present in Change Password Tab by clicking on each 
 	 * text boxes and then clicking on search bar one by one.
 	 */
-	@Test(priority=13,enabled=true)
+	@Test(priority=9,enabled=true)
 	public void verifyErrorMessageInChangePasswordTabByClickingOnEachTxtBoxAndClickSomeWhereElse() {
 		Log.info("Validation of All Error Messages In Change Password TAB started---------");
 		reportStep("Validation of All Error Messages In Change Password TAB started---------", "INFO");
@@ -289,7 +289,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	/**
 	 * This method will verify that a user will be unable to change password if current password is incorrect.
 	 */
-	@Test(priority=14,enabled=true)
+	@Test(priority=10,enabled=true)
 	public void verifyUserIsUnableToChangePwdIfCurrentPwdIsIncorrect() {
 		Log.info("Validation of Error Message In Change Password TAB when current password is incorrect started---------");
 		reportStep("Validation of Error Message In Change Password TAB when current password is incorrect started---------", "INFO");
@@ -319,7 +319,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	 * by clicking on each text boxes and then Pressing TAB key. All message will appear will 
 	 * appear each time user presses TAB key.
 	 */
-	@Test(priority=15,enabled=true)
+	@Test(priority=11,enabled=true)
 	public void verifyErrorMessageInChangePasswordTabByClickingOnEachTxtBoxAndThenPressingTabKey() {
 		Log.info("Validation of All Error Messages In Change Password TAB started---------");
 		reportStep("Validation of All Error Messages In Change Password TAB started---------", "INFO");
@@ -351,7 +351,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	 * This method will verify error message when a user Is unable to change password if new password and confirm new password is incorrect.
 	 */
 	
-	@Test(priority=16,enabled=true)
+	@Test(priority=12,enabled=true)
 	public void verifyUserIsUnableToChangePwdIfNewPwdAndConfirmNewPwdIsDifferent() {
 		Log.info("Validation of Error Message In Change Password TAB when current password is incorrect started---------");
 		reportStep("Validation of Error Message In Change Password TAB when current password is incorrect started---------", "INFO");
@@ -381,7 +381,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	 * Expected Error message is: 
 	 */
 	
-	@Test(priority=17,enabled=true)
+	@Test(priority=13,enabled=true)
 	public void verifyErrorMessageForMinCharFullName() {
 		Log.info("Validation of Error Messages For Minimum Character in Full Name started---------");
 		reportStep("Validation of Error Messages For Minimum Character in Full Name started---------", "INFO");
@@ -407,7 +407,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	 * This method will verify max length for current password, new password and confirm new password field
 	 * of Change Password Tab in Account Setting Page.
 	 */
-	@Test(priority=18,enabled=true)
+	@Test(priority=14,enabled=true)
 	public void verifyMaxLengthPwdForAllInChangePwdTab() {
 		Log.info("Validation of max length for current password, new password and confirm new password field in Change Password Tab for all three text boxes started---------");
 		reportStep("Validation of max length for current password, new password and confirm new password field in Change Password Tab for all three text boxes started---------", "INFO");
@@ -434,7 +434,7 @@ public class AccountSettingsPageTestCases extends TestSetUp{
 	 * This method will verify minimum length for current password, new password and confirm new password field
 	 * of Change Password Tab in Account Setting Page.
 	 */
-	@Test(priority=19,enabled=true)
+	@Test(priority=15,enabled=true)
 	public void verifyminCharacterPwdInChangePwdTab() {
 		Log.info("Validation of Error Messages For Minimum Character in Change Password Tab for all three text boxes started---------");
 		reportStep("Validation of Error Messages For Minimum Character in Change Password Tab for all three text boxes started---------", "INFO");

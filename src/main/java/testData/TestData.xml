@@ -104,6 +104,10 @@
 		<itemToBeSearched>amazon</itemToBeSearched>
 		<itemToBeSearched1>flipkart</itemToBeSearched1>
 		<itemToBeSearched2>myntra</itemToBeSearched2>
+		<MCB>BigBasket</MCB>
+		<OrderIDFormat>Cashback Store :2019.12.30.10.12.07813</OrderIDFormat>
+		<novoucher>Cashback Store :2018.10.11.19.10.002232</novoucher>>
+		<SearchFlag>Cashback Store :2018.10.11.19.10.013024</SearchFlag>
 	</MissingCashback>
 	<Admin>
 		<partnerType>ICICI Cashback (Partner 2)</partnerType>

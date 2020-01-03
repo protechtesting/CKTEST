@@ -6,9 +6,9 @@ import com.pps.wordpress.pages.WPHomePage;
 
 import utility.Log;
 import utility.Utils;
-import utility.WrapperMethods;
+import utility.Seleniumbase;
 
-public class HomePageTestCase extends WrapperMethods {
+public class HomePageTests extends Seleniumbase {
 	
 	/**
 	 * Verify Default components in home page 
@@ -16,7 +16,7 @@ public class HomePageTestCase extends WrapperMethods {
 	 * PreCondition: Guest User
 	 */
 	
-	//@Test(priority=26,enabled=true)
+	@Test(priority=1,enabled=true)
 	public void VerifyDefaultComponentsofHomePage() throws Exception{
 		try {
 			reportStep("verification of Default components in home page started", "INFO");
@@ -40,7 +40,7 @@ public class HomePageTestCase extends WrapperMethods {
 	 * PreCondition: Guest User
 	 */
 	
-	//@Test(priority=26,enabled=true)
+	@Test(priority=2,enabled=true)
 	public void successfulLoginViaHomePageStoreCardActivateCashBackLink() throws Exception{
 		try {
 			reportStep("Validation of Successful Login Through Search Functionality and Voucher CTA started", "INFO");
@@ -62,7 +62,7 @@ public class HomePageTestCase extends WrapperMethods {
 		}
 	}
 	
-	//@Test(priority=26,enabled=true)
+	@Test(priority=3,enabled=true)
 	public void verifypopularAndTrendingRetailerfunctionality() throws Exception{
 		try {
 			reportStep("Validation of popular retailer functionality started", "INFO");
@@ -81,7 +81,7 @@ public class HomePageTestCase extends WrapperMethods {
 		}
 	}
 	
-	@Test
+	@Test(priority=4)
 	public void N18StoreNavigationFromHomePage()
 	{      
 		

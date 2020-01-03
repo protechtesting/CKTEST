@@ -21,9 +21,9 @@ import com.relevantcodes.extentreports.ExtentTest;
 import utility.Log;
 import utility.TestSetUp;
 import utility.Utils;
-import utility.WrapperMethods;
+import utility.Seleniumbase;
 
-public class WPMissingTicket extends WrapperMethods{
+public class WPMissingTicket extends Seleniumbase{
 
 	private Boolean presence;
 	

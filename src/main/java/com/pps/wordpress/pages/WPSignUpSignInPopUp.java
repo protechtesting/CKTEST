@@ -15,9 +15,9 @@ import com.relevantcodes.extentreports.ExtentTest;
 import utility.TestSetUp;
 import utility.Log;
 import utility.Utils;
-import utility.WrapperMethods;
+import utility.Seleniumbase;
 
-public class WPSignUpSignInPopUp extends WrapperMethods{
+public class WPSignUpSignInPopUp extends Seleniumbase{
 	Boolean presence;
 	public static final Logger log = LogManager.getLogger(WPSignUpSignInPopUp.class);	
 	public WPSignUpSignInPopUp(WebDriver driver, ExtentTest logger){
@@ -1098,6 +1098,7 @@ public class WPSignUpSignInPopUp extends WrapperMethods{
 	public WPSignUpSignInPopUp verifyFieldsPresent() throws Exception
 	{	
 
+		
 		verifyDisplayed(driver,"SignIn Tab link",lnkSignInLoginForm);
 		verifyDisplayed(driver,"Sign Up Link",lnkSignUp);
 		verifyDisplayed(driver,"Email field",txtBxEmail);	
@@ -1111,7 +1112,10 @@ public class WPSignUpSignInPopUp extends WrapperMethods{
 	
 	
 	public void verifyCharecterAllowancePositiveScenario() {
+		
+	
         VerifyChar_allowance("Email",txtBxEmail, "235235");
+        Utils.sleep3sec();
         VerifyChar_allowance("Email",txtBxEmail, "JGJHJJ");
         VerifyChar_allowance("Email",txtBxEmail, "^%^&&^&^*&");
         VerifyChar_allowance("Password",txtBxPassword, "235235");
@@ -1137,6 +1141,62 @@ public class WPSignUpSignInPopUp extends WrapperMethods{
 		
 
 	}
+	
+	
+	
+
+	public void verifyCharecterAllowancePositiveScenarioSignUP() {
+		
+	
+        VerifyChar_allowance("Email",txtBxEmail, "235235");
+        Utils.sleep3sec();
+        VerifyChar_allowance("Email",txtBxEmail, "JGJHJJ");
+        VerifyChar_allowance("Email",txtBxEmail, "^%^&&^&^*&");
+        VerifyChar_allowance("Password",txtBxPassword, "235235");
+        VerifyChar_allowance("Password",txtBxPassword, "dsfedsaug");
+        VerifyChar_allowance("Password",txtBxPassword, "%$^*&(&(");
+
+	}
+	
+	
+
+	public void verifyCharecterNotAllowanceNegativeScenarioSignUP() {
+		Utils.sleep3sec();
+	
+		VerifyChar_NotAllowance("Full Name",txtBxFullName, "235235");
+		VerifyChar_NotAllowance("Full Name",txtBxFullName, "^*%&*"); 
+		
+		VerifyChar_NotAllowance("Mobile Number",txtBxMobileNumberSignUp, "wewerwer");
+		VerifyChar_NotAllowance("Mobile Number",txtBxMobileNumberSignUp, "^*%&*"); 
+    
+	}
+
+
+	public void VerifyFieldLengthSignUP() {
+		
+		
+		verifyFieldLength(txtBxFullName,50);
+		verifyFieldLength(txtBxEmail,50);
+		verifyFieldLength(txtBxPassword,20);
+		verifyFieldLength(txtBxMobileNumberSignUp,10);
+		
+
+		
+
+	}
+
+	public void VerifyCopyPasteAllowanceSignUP() throws AWTException {
+
+		
+		copypaste(txtBxEmail, "12345678", 8);
+		copypaste(txtBxPassword, "12345678", 8);
+		copypaste(txtBxFullName, "mnsgthtg", 8);
+		copypaste(txtBxMobileNumberSignUp, "9894835867", 10);
+		
+
+	}
+
+
 
 	
 	

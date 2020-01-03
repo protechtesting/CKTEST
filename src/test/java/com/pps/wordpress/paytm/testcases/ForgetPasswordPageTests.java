@@ -16,7 +16,7 @@ import utility.Utils;
  * <p>
  * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-4">Raise JIRA Issue Here</a>
  */
-public class ForgetPasswordPageTestcases extends TestSetUp{
+public class ForgetPasswordPageTests extends TestSetUp{
 
 	/**
 	 * This method will verify Forgot Password Functionality. 

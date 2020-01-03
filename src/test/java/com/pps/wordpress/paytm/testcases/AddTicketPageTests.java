@@ -22,7 +22,7 @@ import utility.Utils;
  *
  */
 
-public class AddTicketPageTestcases extends TestSetUp {
+public class AddTicketPageTests extends TestSetUp {
 	
 	
 	/**
@@ -51,7 +51,7 @@ public class AddTicketPageTestcases extends TestSetUp {
 	 */
 	
 	
-	//@Test(priority=1)
+	@Test(priority=1)
 	public void VerifyDefaultComponentsofAddTicketForm()
 	{
 		
@@ -106,53 +106,6 @@ public class AddTicketPageTestcases extends TestSetUp {
 		reportStep(completed, "PASS");
 		
 	}
-	//@Test(priority=1)
-	public void VerifyDefaultComponentsofAddTicketPage()
-	{
-		
-		String started="Validation of Successful Adding a Ticket for Missing Cashback ----- Started";
-		String completed="Validation of Successful Adding a Ticket for Missing Cashback ----- Completed";
-		Log.info(started);
-		reportStep(started, "INFO");
-		
-		String email=Utils.generateRandomEmailId();
-		String password=Utils.getTestData(1, "password");
-		String mobile=Utils.generateRandomMobileNumber();
-		String itemToBeSearched=Utils.getTestData(7, "itemToBeSearched");
-		String transactionID=Utils.getTestData(7, "transactionID");
-		String couponCode=Utils.getTestData(7, "couponCode");
-		String totalAmountPaid=Utils.getTestData(7, "amount");
-		String transactionDetails=Utils.getTestData(7, "transactionDetails");
-		new WPHomePage(driver, logger).
-		clickOnlblSignInSignUP().
-		clickOnlnkSignIn().
-		clickSignUpTab().
-		enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
-		enterEmailIDDuringSignUp(email).
-		enterPasswordSignUp(password).
-		enterMobileNumberSignUp(mobile).
-		clickJoinWithEmailDuringSignUp().
-		
-		
-		enterOtpDuringSignUp(mobile).
-		clickVerifyOTP().
-		verifyPresenceOfMyAccountLabel().
-		searchForVoucherOrStore(itemToBeSearched).
-		clickOnVoucherCardActivateCashBack();
-		Utils.switchToNewlyOpenWindow(driver);
-		Utils.explicitWaitForUrlContains(itemToBeSearched);
-		Utils.closeCurrentWindow(driver);
-		Utils.switchToParentWindow(driver);
-		Utils.openNewTab(driver);
-		Utils.switchToNewlyOpenWindow(driver);
-		String exitClickId=new WPAdmin(driver, logger).
-		retrieveExitClick(driver, email);
-		Utils.backDatingAnExitId(driver, exitClickId, Utils.getTestData(8, "partnerType"));
-		new WPSearchResultsPage(driver, logger).
-		clickMyAccountLabel().
-		clickMissingCashBackLink();
-		
-	}
 	
 	
 	/**
@@ -160,7 +113,7 @@ public class AddTicketPageTestcases extends TestSetUp {
 
 	 * <p>PreCondition: User must be guest<dd>
 	 */
-	@Test(priority=1)
+	@Test(priority=2)
 	public void VerifyMissingCashbackCalenderEnabledfor10days()
 	{
 		
@@ -217,7 +170,7 @@ public class AddTicketPageTestcases extends TestSetUp {
 
 	 * <p>PreCondition: User must be guest<dd>
 	 */
-	//@Test(priority=1)
+	@Test(priority=3)
 	public void VerifyraisingticketforN18shouldnotbeallowed()
 	{
 		
@@ -283,7 +236,7 @@ public class AddTicketPageTestcases extends TestSetUp {
 	 * <p>PreCondition: User must be guest<dd>
 	 */
 	
-	//@Test(priority=1)
+	@Test(priority=4)
 	public void VerifyRaisingticketAlreadyraisedrecordshouldnotallow()
 	{
 		
@@ -351,7 +304,7 @@ public class AddTicketPageTestcases extends TestSetUp {
 	 * <p>PreCondition: User must be guest<dd>
 	 */
 	
-	//@Test(priority=1)
+	@Test(priority=5)
 	public void VerifyRaisingticketbefore72hoursshouldnotallow()
 	{
 		
@@ -412,7 +365,7 @@ public class AddTicketPageTestcases extends TestSetUp {
 	 * Precondition : Exit Click Id needs to be back date. Items which a user is searching needs to be shown in Search Result Page
 	 * @throws InterruptedException 
 	 */
-	//@Test(priority=2,enabled=true)
+	@Test(priority=6,enabled=true)
 	public void raiseATicketSuccessFullyFromMyEarningPage() throws InterruptedException {
 		String started="Validation of Successful Adding a Ticket for Missing Cashback ----- Started";
 		String completed="Validation of Successful Adding a Ticket for Missing Cashback ----- Completed";
@@ -477,7 +430,7 @@ public class AddTicketPageTestcases extends TestSetUp {
 	 * 
 	 */
 	
-	//@Test(priority=5,enabled=true)
+	@Test(priority=7,enabled=true)
 		public void raiseATicketSuccessFullyFromMissingCashBackPage() {
 			String started="Validation of Successful Adding a Ticket for Missing Cashback ----- Started";
 			String completed="Validation of Successful Adding a Ticket for Missing Cashback ----- Completed";
@@ -547,7 +500,7 @@ public class AddTicketPageTestcases extends TestSetUp {
 		 * This method will validate error message if user is trying to 
 		 * raise ticket for a date for which no exit clik id is generated.
 		 */
-		//@Test(priority=1,enabled=true)
+		@Test(priority=8,enabled=true)
 		public void verifyErrorMessageWhileRaisingTicketIfNoExitIdGenerated() {
 			String started="Validation of Error Message: \"Sorry, we don’t see any clicks from your account on this date. Please select a valid date of transaction or you can reach us\"   in Missing Cashback Form----- Started";
 			String completed="Validation of Error Message: \"Sorry, we don’t see any clicks from your account on this date. Please select a valid date of transaction or you can reach us\"   in Missing Cashback Form------ Completed";
@@ -588,7 +541,7 @@ public class AddTicketPageTestcases extends TestSetUp {
 		 * Below method will validate uploading a png file less than 2 mb and then submitting ticket
 		 * @throws InterruptedException 
 		 */
-		//@Test(priority=4,enabled=true)
+		@Test(priority=9,enabled=true)
 		public void raiseATicketSuccessFullyViaUploadingAFileLessThanTwoMB() throws InterruptedException {
 			String started="Validation of Successful Adding a Ticket for Missing Cashback ----- Started";
 			String completed="Validation of Successful Adding a Ticket for Missing Cashback ----- Completed";
@@ -652,7 +605,7 @@ public class AddTicketPageTestcases extends TestSetUp {
 		 * This method will validate raising ticket when multiple exit click ID is present.
 		 * @throws InterruptedException 
 		 */
-		//@Test(priority=12,enabled=true)
+		@Test(priority=10,enabled=true)
 		public void validateRaisingTicketMultipleExitId() throws InterruptedException {
 			String started="Validation of Successful Multiple Exit ID Functionality ----- Started";
 			String completed="Validation of Successful Multiple Exit ID Functionality ----- Completed";
@@ -739,8 +692,88 @@ public class AddTicketPageTestcases extends TestSetUp {
 		 * @throws InterruptedException 
 		 */
 		
-		//@Test(priority=12,enabled=true)
+		@Test(priority=11,enabled=true)
 		public void validateRaiseTicketSameDateSameRetailer() throws InterruptedException {
+			
+			String started="Validation of Successful Multiple Exit ID Functionality ----- Started";
+			String completed="Validation of Successful Multiple Exit ID Functionality ----- Completed";
+			Log.info(started);
+			reportStep(started, "INFO");
+			String email=Utils.generateRandomEmailId();
+			String password=Utils.getTestData(1, "password");
+			String mobile=Utils.generateRandomMobileNumber();
+			String itemToBeSearched=Utils.getTestData(7, "itemToBeSearched");
+			String itemToBeSearched1=Utils.getTestData(7, "itemToBeSearched1");
+			String itemToBeSearched2=Utils.getTestData(7, "itemToBeSearched2");
+			String transactionID=Utils.getTestData(7, "transactionID");
+			String couponCode=Utils.getTestData(7, "couponCode");
+			String totalAmountPaid=Utils.getTestData(7, "amount");
+			String transactionDetails=Utils.getTestData(7, "transactionDetails");
+			new WPHomePage(driver, logger).
+			clickOnlblSignInSignUP().
+			clickOnlnkSignIn().
+			clickSignUpTab().
+			enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
+			enterEmailIDDuringSignUp(email).
+			enterPasswordSignUp(password).
+			enterMobileNumberSignUp(mobile).
+			clickJoinWithEmailDuringSignUp().
+			enterOtpDuringSignUp(mobile).
+			clickVerifyOTP().
+			verifyPresenceOfMyAccountLabel().
+			searchForVoucherOrStore(itemToBeSearched).
+			clickOnVoucherCardActivateCashBack();
+			Utils.switchToNewlyOpenWindow(driver);
+			Utils.explicitWaitForUrlContains(itemToBeSearched);
+			Utils.closeCurrentWindow(driver);
+			Utils.switchToParentWindow(driver);
+			Utils.openNewTab(driver);
+			Utils.switchToNewlyOpenWindow(driver);
+			String exitClickId=new WPAdmin(driver, logger).
+			retrieveExitClick(driver, email);
+			Utils.backDatingAnExitId(driver, exitClickId, Utils.getTestData(8, "partnerType"));
+			new WPSearchResultsPage(driver, logger).
+			searchForVoucherOrStore(itemToBeSearched).
+			clickOnVoucherCardActivateCashBack();
+			Utils.switchToNewlyOpenWindow(driver);
+			Utils.explicitWaitForUrlContains(itemToBeSearched);
+			Utils.closeCurrentWindow(driver);
+			Utils.switchToParentWindow(driver);
+			Utils.switchToNewlyOpenWindow(driver);
+			exitClickId=new WPAdmin(driver, logger).
+			retrieveMostRecentExitClick(driver);
+			Utils.backDatingAnExitId(driver, exitClickId, Utils.getTestData(8, "partnerType"));
+			new WPSearchResultsPage(driver, logger).
+			searchForVoucherOrStore(itemToBeSearched).
+			clickOnVoucherCardActivateCashBack();
+			Utils.switchToNewlyOpenWindow(driver);
+			Utils.explicitWaitForUrlContains(itemToBeSearched);
+			Utils.closeCurrentWindow(driver);
+			Utils.switchToParentWindow(driver);
+			Utils.switchToNewlyOpenWindow(driver);
+			exitClickId=new WPAdmin(driver, logger).
+			retrieveMostRecentExitClick(driver);
+			Utils.backDatingAnExitId(driver, exitClickId, Utils.getTestData(8, "partnerType"));
+			new WPSearchResultsPage(driver, logger).
+			clickMyAccountLabel().
+			clickMyEarningLink().
+			clickRaiseTicketLink().
+			clickDateOfTransactionTextBox().
+			clickFourDaysBackDate().
+			selectFirstRetailerDropDropDownListInMissingCashBackPage().
+			clickSelectLink().
+			enterTransactionId(transactionID).
+			enterCouponCodeUsed(couponCode).
+			enterTransactionDetails(transactionDetails).
+			enterTotalAmountPaid(totalAmountPaid).
+			clickChkBoxTermsAndConditions().
+			clickSubmitButton().
+			verifyPresenceOfinfoMessageQuerySubmittedSuccessFully();
+			//.		clickCloseIconInPopUp();
+			Log.info(completed);
+			reportStep(completed, "INFO");
+			
+			
 			
 		}
 		
@@ -749,8 +782,86 @@ public class AddTicketPageTestcases extends TestSetUp {
 		 * @throws InterruptedException 
 		 */
 		
-		//@Test(priority=12,enabled=true)
+		@Test(priority=12,enabled=true)
 		public void ValidateraiseticketSameDateDifferentRetailer() throws InterruptedException {
+			
+			String started="Validation of Successful Multiple Exit ID Functionality ----- Started";
+			String completed="Validation of Successful Multiple Exit ID Functionality ----- Completed";
+			Log.info(started);
+			reportStep(started, "INFO");
+			String email=Utils.generateRandomEmailId();
+			String password=Utils.getTestData(1, "password");
+			String mobile=Utils.generateRandomMobileNumber();
+			String itemToBeSearched=Utils.getTestData(7, "itemToBeSearched");
+			String itemToBeSearched1=Utils.getTestData(7, "itemToBeSearched1");
+			String itemToBeSearched2=Utils.getTestData(7, "itemToBeSearched2");
+			String transactionID=Utils.getTestData(7, "transactionID");
+			String couponCode=Utils.getTestData(7, "couponCode");
+			String totalAmountPaid=Utils.getTestData(7, "amount");
+			String transactionDetails=Utils.getTestData(7, "transactionDetails");
+			new WPHomePage(driver, logger).
+			clickOnlblSignInSignUP().
+			clickOnlnkSignIn().
+			clickSignUpTab().
+			enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
+			enterEmailIDDuringSignUp(email).
+			enterPasswordSignUp(password).
+			enterMobileNumberSignUp(mobile).
+			clickJoinWithEmailDuringSignUp().
+			enterOtpDuringSignUp(mobile).
+			clickVerifyOTP().
+			verifyPresenceOfMyAccountLabel().
+			searchForVoucherOrStore(itemToBeSearched).
+			clickOnVoucherCardActivateCashBack();
+			Utils.switchToNewlyOpenWindow(driver);
+			Utils.explicitWaitForUrlContains(itemToBeSearched);
+			Utils.closeCurrentWindow(driver);
+			Utils.switchToParentWindow(driver);
+			Utils.openNewTab(driver);
+			Utils.switchToNewlyOpenWindow(driver);
+			String exitClickId=new WPAdmin(driver, logger).
+			retrieveExitClick(driver, email);
+			Utils.backDatingAnExitId(driver, exitClickId, Utils.getTestData(8, "partnerType"));
+			new WPSearchResultsPage(driver, logger).
+			searchForVoucherOrStore(itemToBeSearched1).
+			clickOnVoucherCardActivateCashBack();
+			Utils.switchToNewlyOpenWindow(driver);
+			Utils.explicitWaitForUrlContains(itemToBeSearched1);
+			Utils.closeCurrentWindow(driver);
+			Utils.switchToParentWindow(driver);
+			Utils.switchToNewlyOpenWindow(driver);
+			exitClickId=new WPAdmin(driver, logger).
+			retrieveMostRecentExitClick(driver);
+			Utils.backDatingAnExitId(driver, exitClickId, Utils.getTestData(8, "partnerType"));
+			new WPSearchResultsPage(driver, logger).
+			searchForVoucherOrStore(itemToBeSearched2).
+			clickOnVoucherCardActivateCashBack();
+			Utils.switchToNewlyOpenWindow(driver);
+			Utils.explicitWaitForUrlContains(itemToBeSearched2);
+			Utils.closeCurrentWindow(driver);
+			Utils.switchToParentWindow(driver);
+			Utils.switchToNewlyOpenWindow(driver);
+			exitClickId=new WPAdmin(driver, logger).
+			retrieveMostRecentExitClick(driver);
+			Utils.backDatingAnExitId(driver, exitClickId, Utils.getTestData(8, "partnerType"));
+			new WPSearchResultsPage(driver, logger).
+			clickMyAccountLabel().
+			clickMyEarningLink().
+			clickRaiseTicketLink().
+			clickDateOfTransactionTextBox().
+			clickFourDaysBackDate().
+			selectFirstRetailerDropDropDownListInMissingCashBackPage().
+			clickSelectLink().
+			enterTransactionId(transactionID).
+			enterCouponCodeUsed(couponCode).
+			enterTransactionDetails(transactionDetails).
+			enterTotalAmountPaid(totalAmountPaid).
+			clickChkBoxTermsAndConditions().
+			clickSubmitButton().
+			verifyPresenceOfinfoMessageQuerySubmittedSuccessFully();
+			//.		clickCloseIconInPopUp();
+			Log.info(completed);
+			reportStep(completed, "INFO");
 					
 				
 		}
@@ -764,7 +875,7 @@ public class AddTicketPageTestcases extends TestSetUp {
 		 * <p>
 	     * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-10">Raise JIRA Issue Here</a>
 		 */
-		//@Test(priority=13,enabled=true)
+		@Test(priority=13,enabled=true)
 		public void validateErrorIfSizeIsMoreThanTwoMB() {
 			String started="Validation of Errors If Size of a File is More than Two MB Functionality ----- Started";
 			String completed="Validation of Errors If Size of a File is More than Two MB Functionality----- Completed";
@@ -846,12 +957,60 @@ public class AddTicketPageTestcases extends TestSetUp {
 		 * <p>
 	     * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-10">Raise JIRA Issue Here</a>
 		 */
-		//@Test(priority=13,enabled=true)
+		@Test(priority=14,enabled=true)
 		public void MissingCashbackFlagValidation() {
+			
+			
+			String started="Validation of Successful Adding a Ticket for Missing Cashback ----- Started";
+			String completed="Validation of Successful Adding a Ticket for Missing Cashback ----- Completed";
+			Log.info(started);
+			reportStep(started, "INFO");
+			
+			String email=Utils.generateRandomEmailId();
+			String password=Utils.getTestData(1, "password");
+			String mobile=Utils.generateRandomMobileNumber();
+			String itemToBeSearched=Utils.getTestData(7, "MCB");
+			String transactionID=Utils.getTestData(7, "transactionID");
+			String couponCode=Utils.getTestData(7, "couponCode");
+			String totalAmountPaid=Utils.getTestData(7, "amount");
+			String transactionDetails=Utils.getTestData(7, "transactionDetails");
+			new WPHomePage(driver, logger).
+			clickOnlblSignInSignUP().
+			clickOnlnkSignIn().
+			clickSignUpTab().
+			enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
+			enterEmailIDDuringSignUp(email).
+			enterPasswordSignUp(password).
+			enterMobileNumberSignUp(mobile).
+			clickJoinWithEmailDuringSignUp().
+			
+			
+			enterOtpDuringSignUp(mobile).
+			clickVerifyOTP().
+			verifyPresenceOfMyAccountLabel().
+			searchForVoucherOrStore(itemToBeSearched).
+			clickOnVoucherCardActivateCashBack();
+			Utils.switchToNewlyOpenWindow(driver);
+			Utils.explicitWaitForUrlContains(itemToBeSearched);
+			Utils.closeCurrentWindow(driver);
+			Utils.switchToParentWindow(driver);
+			Utils.openNewTab(driver);
+			Utils.switchToNewlyOpenWindow(driver);
+			String exitClickId=new WPAdmin(driver, logger).
+			retrieveExitClick(driver, email);
+			Utils.backDatingAnExitId(driver, exitClickId, Utils.getTestData(8, "partnerType"));
+		
+				new WPSearchResultsPage(driver, logger).
+				clickMyAccountLabel().
+				clickMissingCashBackLink().
+				clickAddTicketLink().
+				clickDateOfTransactionTextBox().
+				clickFourDaysBackDate().
+				verifySorryWeDontSeeAnyClickErrorMsgIsVisible();
 			
 		}
 		
-		
+
 		
 		/**
 		 * Missing Cashback Order ID Validation
@@ -859,14 +1018,60 @@ public class AddTicketPageTestcases extends TestSetUp {
 		 * <p>
 	     * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-10">Raise JIRA Issue Here</a>
 		 */
-		//@Test(priority=13,enabled=true)
+		@Test(priority=15,enabled=true)
 		public void MissingCashbackOrderIDValidation() {
 			
+			String started="Validation of Successful Adding a Ticket for Missing Cashback ----- Started";
+			String completed="Validation of Successful Adding a Ticket for Missing Cashback ----- Completed";
+			String fail = "Order ID format verification is failed";
+			Log.info(started);
+			reportStep(started, "INFO");
+			String email=Utils.generateRandomEmailId();
+			String password=Utils.getTestData(1, "password");
+			String mobile=Utils.generateRandomMobileNumber();
+			String itemToBeSearched=Utils.getTestData(7, "OrderIDFormat");
+			String transactionID=Utils.getTestData(7, "transactionID");
+			String couponCode=Utils.getTestData(7, "couponCode");
+			String totalAmountPaid=Utils.getTestData(7, "amount");
+			String transactionDetails=Utils.getTestData(7, "transactionDetails");
+			try {
+				new WPHomePage(driver, logger).
+				clickOnlblSignInSignUP().
+				clickOnlnkSignIn().
+				clickSignUpTab().
+				enterFullNameDuringSignUp(Utils.getTestData(1, "fullName")).
+				enterEmailIDDuringSignUp(email).
+				enterPasswordSignUp(password).
+				enterMobileNumberSignUp(mobile).
+				clickJoinWithEmailDuringSignUp().
+				enterOtpDuringSignUp(mobile).
+				clickVerifyOTP().
+				verifyPresenceOfMyAccountLabel().
+				searchForVoucherOrStore(itemToBeSearched).
+				clickOnVoucherCardActivateCashBack();
+				Utils.switchToNewlyOpenWindow(driver);
+				Utils.explicitWaitForUrlContains(itemToBeSearched);
+				Utils.closeCurrentWindow(driver);
+				Utils.switchToParentWindow(driver);
+				Utils.openNewTab(driver);
+				Utils.switchToNewlyOpenWindow(driver);
+				String exitClickId=new WPAdmin(driver, logger).
+				retrieveExitClick(driver, email);
+				Utils.backDatingAnExitId(driver, exitClickId, Utils.getTestData(8, "partnerType"));
+				new WPSearchResultsPage(driver, logger).
+				clickMyAccountLabel().
+				clickMyEarningLink().
+				clickRaiseTicketLink().
+				clickDateOfTransactionTextBox().
+				clickFourDaysBackDate().
+				selectFirstRetailerDropDropDownListInMissingCashBackPage().
+				verifyPresenceOfOrderIDFormat();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				Log.info(fail);
+				reportStep(fail, "INFO");
+			}
 		}
-		
-		
-		
-		
 
 
 

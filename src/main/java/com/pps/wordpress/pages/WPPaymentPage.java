@@ -11,12 +11,15 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+
 import com.relevantcodes.extentreports.ExtentTest;
 import utility.TestSetUp;
 import utility.Log;
+import utility.Seleniumbase;
 import utility.Utils;
 
-public class WPPaymentPage  extends TestSetUp{
+public class WPPaymentPage extends Seleniumbase{
 	Boolean presence;
 	public static final Logger log = LogManager.getLogger(WPPaymentPage.class);
 
@@ -339,7 +342,150 @@ public class WPPaymentPage  extends TestSetUp{
 		}
 		return this;
 	}
+	
+	
+	  @FindBy(id ="amazon_giftcard_email_err") 
+	  private static WebElement EmailErrors;
 
+
+	
+	public WPPaymentPage verifyEmailError() throws Exception
+	{	
+
+		try {
+			if(EmailErrors.isDisplayed())
+			{
+				
+				Log.info("Email successfully validated");
+				reportStep("Email successfully validated", "PASS");
+				
+			}else
+			{
+				Log.info("No Email Validation");
+				reportStep("No Email Validation", "FAIL");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+	
+				
+		return this;
+	}
+	
+	
+	
+	  @FindBy(id ="businessid_name_err") 
+	  private static WebElement CharityNameError;	
+	  
+
+	  @FindBy(id ="charity_amount_err") 
+	  private static WebElement CharityAmountError;
+	  
+	
+	
+	
+	
+	public WPPaymentPage verifyCharityNameValidation() throws Exception
+	{	
+
+		try {
+			if(CharityNameError.isDisplayed())
+			{
+				
+				Log.info("Charity Name successfully validated");
+				reportStep("Charity Name  successfully validated", "PASS");
+				
+			}else
+			{
+				Log.info("Charity Name validation failed");
+				reportStep("Charity Name validation failed", "FAIL");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+	
+				
+		return this;
+	}
+	
+	
+
+	
+	public WPPaymentPage verifyCharityAmountValidation() throws Exception
+	{	
+
+		try {
+			if(CharityNameError.isDisplayed())
+			{
+				
+				Log.info("Charity Amount successfully validated");
+				reportStep("Charity Amount  successfully validated", "PASS");
+				
+			}else
+			{
+				Log.info("Charity Amount validation failed");
+				reportStep("Charity Amount validation failed", "FAIL");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+	
+				
+		return this;
+	}
+	
+	
+
+	
+	@FindBy(id="neft_acc_name_err")
+	private static WebElement NEFTAccountNameError;
+	
+	@FindBy(id="neft_bank_err")
+	private static WebElement NEFTBankNameError;
+	
+	@FindBy(id="neft_bank_branch_err")
+	private static WebElement NEFTBranchNameError;
+	
+	@FindBy(id="neft_acc_number_err")
+	private static WebElement NEFTAccountNUmberError;
+	
+	@FindBy(id="neft_ifsc_code_err")
+	private static WebElement NEFTIFSCCodeError;
+	
+	
+	public WPPaymentPage VerifyNEFTFieldsvalidation() {
+		
+		if (NEFTAccountNameError.isDisplayed()
+		    &&NEFTBankNameError.isDisplayed()
+		    &&NEFTBranchNameError.isDisplayed()
+		    &&NEFTAccountNUmberError.isDisplayed()
+		    &&NEFTIFSCCodeError.isDisplayed())
+		{
+			Log.info("NEFT fields successfully validated");
+			reportStep("NEFT fields  successfully validated", "PASS");
+			
+		}else
+		{
+			Log.info("NEFT fields  validation failed");
+			reportStep("NEFT fields  validation failed", "FAIL");
+		}
+			
+	
+		
+		return this;		
+		
+	}
+
+	
+	
+
+	
 	@FindBy(id="businessid_name")
 	private static WebElement ddlChooseCharityName; // ddl stands for drop down list
 	//Select Charity Name from drop down
@@ -1379,4 +1525,24 @@ public class WPPaymentPage  extends TestSetUp{
 		}
 		return this;
 	}
+	
+	@FindBy(id="invalidOtp")
+	private static WebElement lblInvalidOtp;
+
+	public WPPaymentPage verifyLabelInvalidOtp() {
+		Log.info("Fetching Invalid otp Label on OTP Form during Sign Up");
+		reportStep("Fetching Invalid otp Label on OTP Form during Sign Up","INFO");
+		Utils.explicitWaitForVisibility(lblInvalidOtp);
+		String expected="Invalid OTP code";
+		String actual=lblInvalidOtp.getText();
+		if(expected.equals(actual)) {
+			Log.info("Fetching Invalid otp Label on OTP Form during Sign Up");
+			reportStep("Fetching Invalid otp Label on OTP Form during Sign Up","PASS");
+		}else {
+			Log.info(actual +" is actual Invalid otp Label but expected text should be "+expected+" on OTP Form during Sign Up");
+			reportStep("actual +\" is actual Invalid otp Label but expected text should be \"+expected+\" on OTP Form during Sign Up","FAIL");
+		}
+		return this;
+	}
+	
 }

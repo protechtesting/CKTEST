@@ -17,7 +17,7 @@ import utility.Utils;
  */
 
 
-public class LoginPageTestcases extends TestSetUp{
+public class LoginPageTests extends TestSetUp{
 	
 	/**
 	 * <p><strong>Navigate to Login Page and Verify Default Components</strong><dd> 
@@ -30,7 +30,7 @@ public class LoginPageTestcases extends TestSetUp{
      * Forget Password (Link)
 	 * <p>PreCondition: User must be guest
 	 */
-	//@Test(priority=1)
+	@Test(priority=1)
 	public void VerifyDefaultComponentsofLoginPage()
 	{
 		
@@ -56,7 +56,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * PreCondition: Guest User
 	 */
 	
-	//@Test(priority=2)
+	@Test(priority=2)
 	public void verifyPlaceHolderValueOfEmailAndPasswordTextBoxes()throws Exception {
 		try {
 			reportStep("Verification of Presence of Placeholder Value of Email and Password Textboxes started", "INFO");
@@ -92,8 +92,8 @@ public class LoginPageTestcases extends TestSetUp{
 			reportStep("Verification of alpha numeric and special charecter in Email and Password Textboxes completed", "PASS");
 			Log.info("Verification of alpha numeric and special charecter in Email and Password Textboxes completed");
 		}catch(Exception e) {
-			Log.error("Verification of alpha numeric and special charecter in Email and Password Textboxes completed Unsuccessfully");
-			reportStep("Verification of alpha numeric and special charecter in Email and Password Textboxes completed Unsuccessfully", "FAIL");
+			Log.error("Failed to Verifify alpha numeric and special charecter in Email and Password Textboxes");
+			reportStep("Failed to verify alpha numeric and special charecter in Email and Password Textboxes", "FAIL");
 			throw e;
 		}
 	}
@@ -103,7 +103,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * PreCondition: Guest User
 	 */
 	
-	//@Test(priority=4)
+	@Test(priority=4)
 	public void verifyMaxLengthforLoginWindowfields()throws Exception {
 		try {
 			reportStep("Verification of field length in Email and Password Textboxes started", "INFO");
@@ -126,7 +126,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * PreCondition: Guest User
 	 */
 	
-	//@Test(priority=5)
+	@Test(priority=5)
 	public void verifyCopyPasteAllowanceInLoginWindowfields()throws Exception {
 		try {
 			reportStep("Verification of copy paste allowance in Email and Password Textboxes started", "INFO");
@@ -153,7 +153,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority =6,enabled=true)
+	@Test(priority =6,enabled=true)
 	public void verifyPresenceOfErrorMessageWithBlankEmailID()throws Exception {
 		try {
 			reportStep("Verification of Presence of Error Message with Blank Email started", "PASS");
@@ -180,7 +180,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority =7,enabled=true)
+	@Test(priority =7,enabled=true)
 	public void verifyPresenceOfErrorMessageWithBlankPassword()throws Exception {
 		try {
 			reportStep("Verification of Presence of Error Message with Blank Password started", "PASS");
@@ -208,7 +208,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority =8,enabled=true)
+	@Test(priority =8,enabled=true)
 	public void verifyPresenceOfErrorMessageBothUserNamePwdBlank()throws Exception {
 		try {
 			reportStep("Verification of Presence of Error Message with Username and Blank Password started", "INFO");
@@ -237,7 +237,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * PreCondition: User must be guest<dd>
 	 * @throws Exception
 	 */
-	//@Test(priority=9,enabled=true)
+	@Test(priority=9,enabled=true)
 	public void verifyFormatOfEmailID() throws Exception{
 		try {
 			reportStep("Verification of unsuccessful Login started", "PASS");
@@ -264,7 +264,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * PreCondition: Registered User<dd>
 
 	 */
-	//@Test(priority=10,enabled=true)
+	@Test(priority=10,enabled=true)
 	public void verifySuccessfulLoginWithCorrectCredential() {
 		try {
 			String email=Utils.getTestData(0,"ValidUserId");;
@@ -291,7 +291,7 @@ public class LoginPageTestcases extends TestSetUp{
 
 	 * @throws Exception
 	 */
-	//@Test(priority =11,enabled=true)
+	@Test(priority =11,enabled=true)
 	public void verifyUnsuccessfulLoginUsingUnregisteredEmailID() throws Exception{
 		try {
 			reportStep("Verification of unsuccessful Login started", "PASS");
@@ -317,7 +317,7 @@ public class LoginPageTestcases extends TestSetUp{
 
 	 * @throws Exception
 	 */
-	//@Test(priority =12,enabled=true)
+	@Test(priority =12,enabled=true)
 	public void verifyUnsuccessfulLoginUsingInvalidPassword() throws Exception{
 		try {
 			reportStep("Verification of unsuccessful Login started", "PASS");
@@ -348,7 +348,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=13,enabled=true)
+	@Test(priority=13,enabled=true)
 	public void verifyMinimumCharacterForPasswordField()throws Exception {
 		try {
 			reportStep("Verification of Presence of Error Message for minimum characters in Password field started", "INFO");
@@ -378,7 +378,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=14,enabled=true)
+	@Test(priority=14,enabled=true)
 	public void verifyMaximumCharacterForPasswordField()throws Exception {
 		try {
 			reportStep("Verification of Presence of Error Message for maximum characters in Password field started", "INFO");
@@ -403,7 +403,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=15,enabled=true) 
+	@Test(priority=15,enabled=true) 
 	public void verifyResetFunctionalityOfLoginPopUp() throws Exception {
 		try {
 			reportStep("Verification of Reset Functionality Of Login Pop Up started", "INFO");
@@ -433,7 +433,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=16,enabled=true)
+	@Test(priority=16,enabled=true)
 	public void verifyMaxCharInEmailField()throws Exception {
 		try {
 			reportStep("Verification of Presence of Error Message for maximum characters in Password field started", "INFO");
@@ -458,7 +458,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=17	,enabled=true)
+	@Test(priority=17	,enabled=true)
 	public void successfulLoginViaStorePageMainCTA() throws Exception{
 		try {
 			reportStep("Validation of Successful Login Through Search Functionality and Voucher CTA started", "INFO");
@@ -489,7 +489,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=18,enabled=true)
+	@Test(priority=18,enabled=true)
 	public void successfulLoginViaStorePageVoucherCTA() throws Exception{
 		try {
 			reportStep("Validation of Successful Login Through Search Functionality and Voucher CTA started", "PASS");
@@ -520,7 +520,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=19,enabled=true)
+	@Test(priority=19,enabled=true)
 	public void successfulLoginViaMainCategoryStorePageAndVoucherCTA() throws Exception{
 		try {
 			String category=Utils.getTestData(0, "category");
@@ -555,7 +555,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=20,enabled=true)
+	@Test(priority=20,enabled=true)
 	public void successfulLoginViaMainCategoryStorePageAndMainCTA() throws Exception{
 		try {
 			String category=Utils.getTestData(0, "category");
@@ -589,7 +589,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=21,enabled=true)
+	@Test(priority=21,enabled=true)
 	public void successfulLoginViaMainCategoryAndStoreCardCTA() throws Exception{
 		try {
 			String category=Utils.getTestData(0, "category1");
@@ -625,7 +625,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=22,enabled=true)
+	@Test(priority=22,enabled=true)
 	public void successfulLoginViaSearchAndStoreCardActivateCashBack() throws Exception{
 		try {
 			reportStep("Verification of Successful Login Through Search Functionality and Voucher CTA started", "PASS");
@@ -655,7 +655,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=23,enabled=true)
+	@Test(priority=23,enabled=true)
 	public void successfulLoginViaSearchAndVoucherCardActivateCashBack() throws Exception{
 		try {
 			String itemToBeSearched=Utils.getTestData(0, "searchStore");
@@ -687,7 +687,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=24,enabled=true)
+	@Test(priority=24,enabled=true)
 	public void successfulLoginViaViewAllFunctionalityStoreCardCTAForRetailer() throws Exception{
 		try {
 			String itemToBeSearched=Utils.getTestData(0, "searchStoreViewAll");
@@ -720,7 +720,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority=25,enabled=true)
+	@Test(priority=25,enabled=true)
 	public void successfulLoginViaViewAllFunctionalityStoreCardCTAForVoucher() throws Exception{
 		try {
 			String itemToBeSearched=Utils.getTestData(0, "searchVoucherViewAll");
@@ -751,7 +751,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * PreCondition: Guest User
 	 */
 	
-	//@Test(priority=26,enabled=true)
+	@Test(priority=26,enabled=true)
 	public void successfulLoginViaHomePageStoreCardActivateCashBackLink() throws Exception{
 		try {
 			reportStep("Validation of Successful Login Through Search Functionality and Voucher CTA started", "INFO");
@@ -781,7 +781,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority =27,enabled=true)
+	@Test(priority =27,enabled=true)
 	public void verifySignInLinkNavigationAtTopOfLoginForm()throws Exception {
 		try {
 			reportStep("Verification of Presence of Sign In Link at top of Login Form started", "INFO");
@@ -807,7 +807,7 @@ public class LoginPageTestcases extends TestSetUp{
 	 * @throws Exception
 	 */
 	
-	//@Test(priority =28,enabled=true)
+	@Test(priority =28,enabled=true)
 	public void verifyForgetPasswordNavigationAtTopOfLoginForm()throws Exception {
 		try {
 			reportStep("Verification of Presence of Sign In Link at top of Login Form started", "INFO");

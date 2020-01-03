@@ -16,9 +16,10 @@ import com.relevantcodes.extentreports.ExtentTest;
 
 import utility.TestSetUp;
 import utility.Log;
+import utility.Seleniumbase;
 import utility.Utils;
 
-public class WPStoreCategoryPage extends TestSetUp{
+public class WPStoreCategoryPage extends Seleniumbase{
 	Boolean presence;
 	public static final Logger log = LogManager.getLogger(WPStoreCategoryPage.class);
 	
@@ -44,6 +45,38 @@ public class WPStoreCategoryPage extends TestSetUp{
 			reportStep(fail, "FAIL");
 		} 
 	}
+	
+	// Hamburger Menu link
+		@FindBy(id = "ajaxMenuLoad")
+		private static WebElement lnkHamburgerMenu;
+		
+		// Search Store or Coupon element
+		@FindBy(name = "search_store")
+		private static WebElement txtBxSearchStoreOrCoupons;
+		
+		// Partners Logo
+		@FindBy(id = "imgTopSiteLogo")
+		private static WebElement lnkLogo;
+		
+		// Label Sign In Sign Up
+		@FindBy(xpath = "//span[contains(text(),'Log In')]")
+		private static WebElement lblSignInSignUP;
+		
+		@FindBy(id = "link_contactus")
+		private static WebElement lnkContactUsFooter;
+	
+	
+	public WPStoreCategoryPage verifyStorecategoryheaderFieldsPresent() throws Exception {
+
+		verifyDisplayed(driver, "Hamburger Menu", lnkHamburgerMenu);
+		verifyDisplayed(driver, "search store textbox", txtBxSearchStoreOrCoupons);
+		verifyDisplayed(driver, "paytm logo", lnkLogo);
+		verifyDisplayed(driver, "Link SignIn/SignUP", lblSignInSignUP);
+		verifyDisplayed(driver, "ContactUs link", lnkContactUsFooter);
+
+		return this;
+	}
+	
 	
 	@FindBy(id="category_sort_byPopularity")
 	private static WebElement lnkSortByPopularity;

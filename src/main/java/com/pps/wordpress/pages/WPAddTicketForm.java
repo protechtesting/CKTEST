@@ -22,9 +22,9 @@ import com.relevantcodes.extentreports.ExtentTest;
 import utility.Log;
 import utility.TestSetUp;
 import utility.Utils;
-import utility.WrapperMethods;
+import utility.Seleniumbase;
 
-public class WPAddTicketForm extends WrapperMethods{
+public class WPAddTicketForm extends Seleniumbase{
 	private static boolean presence=false;
 	public static final Logger log = LogManager.getLogger(WPAddTicketForm.class);
 	public WPAddTicketForm(WebDriver driver, ExtentTest logger){
@@ -907,4 +907,26 @@ public class WPAddTicketForm extends WrapperMethods{
 		}
 		return new WPMissingTicket(driver, logger);
 	}
+	
+	@FindBy(xpath="//div/p[text()='This is your Order ID/Transaction ID. The sample format is  ORD12345678']")
+	private static WebElement OrderIDFromat;
+	
+	public WPAddTicketForm verifyPresenceOfOrderIDFormat() throws InterruptedException {
+		String locator="Locating \"Your cashback query reply has been submitted successfully.\" message in Add Ticket Form";
+		String pass="Order ID Format is Present";
+		String fail="Order ID Format is not Present";
+		Log.info(locator);
+		reportStep(locator, "INFO");
+	
+		presence=Utils.verifyElementPresence(OrderIDFromat);
+		if(presence) {
+			Log.info(pass);
+			reportStep(pass, "PASS");
+		}else {
+			Log.info(fail);
+			reportStep(fail, "FAIL");
+		}
+		return this;
+	}
+	
 }

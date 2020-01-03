@@ -17,7 +17,7 @@ import utility.Utils;
  * <p>
  * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-12">Raise JIRA Issue Here</a>
  */
-public class WP_VerifyStorePageFunctionalityForNetworkEighteen extends TestSetUp{
+public class StorePage_N18Tests extends TestSetUp{
 	/**
 	 * verifyAllUserNewUserRadioButtonFunctionality	
 	 */

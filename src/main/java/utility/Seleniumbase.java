@@ -15,13 +15,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class WrapperMethods extends TestSetUp {
+public class Seleniumbase extends TestSetUp {
 	
 
-	public static final Logger log = LogManager.getLogger(WrapperMethods.class);
+	public static final Logger log = LogManager.getLogger(Seleniumbase.class);
 	
 	
-	public  void verifyDisplayed(WebDriver driver, String label,WebElement ele) throws Exception 
+	public  void verifyDisplayed(WebDriver driver, String label,WebElement ele) 
 	{
 		try 
 		{
@@ -55,6 +55,7 @@ public class WrapperMethods extends TestSetUp {
 	{
 
 		try{
+			ele.clear();
 			ele.sendKeys(data);
 			if (ele.getAttribute("value").equals(data))
 			{
@@ -78,6 +79,7 @@ public class WrapperMethods extends TestSetUp {
 	{
 
 		try{
+			ele.clear();
 			ele.sendKeys(data);
 			if (ele.getAttribute("value").length()==0)
 			{
@@ -139,8 +141,10 @@ public class WrapperMethods extends TestSetUp {
 
 			clipboard.setContents(new StringSelection(text), null);
 			ele.clear();
+			Utils.sleep3sec();
 			ele.click();
 
+		
 			Robot robot = new Robot();
 
 			robot.keyPress(KeyEvent.VK_CONTROL);

@@ -16,7 +16,7 @@ import utility.Utils;
  * <p>
  * {@link} <a href="https://pouringpounds.atlassian.net/jira/software/projects/PTA/boards/20/backlog?selectedIssue=PTA-2">Raise JIRA Issue Here</a>
  */
-public class StoreCategoryPageTestcases extends TestSetUp{
+public class StoreCategoryPageTests extends TestSetUp{
 	
 	
 	/**
@@ -28,10 +28,30 @@ public class StoreCategoryPageTestcases extends TestSetUp{
      * Breadcrump
 	 * <p>PreCondition: User must be guest
 	 */
-	//@Test(priority=1)
+	@Test(priority=1)
 	public void VerifyDefaultComponentsofStoreCategoryPage()
 	{
-		
+		try {
+			reportStep("verification of Default components in home page started", "INFO");
+			Log.info("verification of Default components in home page started started");
+			
+			String shortDescription=Utils.getTestData(9, "shortDescriptionSortByNewest");
+			String category=Utils.getTestData(2, "category");
+			Log.info("verification of Default components in home page started");
+			reportStep("verification of Default components in home page started", "INFO");
+			
+			new WPHomePage(driver, logger).
+			clickHambergerMenu().
+			clickMainCategory(category).
+			verifyStorecategoryheaderFieldsPresent();
+			
+			
+			Log.info("verification of Default components in store category page Completed");
+			reportStep("verification of Default components in store page Completed", "PASS");
+		}catch(Exception e) {
+			Log.info("verification of Default components in store category page Completed");
+			reportStep("verification of Default components in store category page Completed", "FAIL");
+		}	
 
 		
 		

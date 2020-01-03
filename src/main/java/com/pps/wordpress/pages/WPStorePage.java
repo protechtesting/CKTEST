@@ -223,6 +223,27 @@ public class WPStorePage extends TestSetUp{
 		return this;
 	}
 
+	public  WPStorePage verifyVoucherInactive(String voucherOneName) {
+		String locator="Locating Voucher Title for Store in Store Page";
+		String pass="Verify voucher is Inactive : "+lblVoucherTitle.getText();
+		String fail="Vouchert is Active so failed";
+		String voucherTitle=new StoreTestData(driver, logger).getRequiredVoucherName(voucherOneName);
+		Log.info(locator);
+		reportStep(locator, "INFO");
+	Utils.sleep3sec();
+		System.out.println(voucherTitle);
+		System.out.println(lblVoucherTitle.getText().toString());
+		if(lblVoucherTitle.getText().toString().trim().equals(voucherTitle)) 
+		{
+			Log.info(pass);
+			reportStep(pass, "FAIL");
+		}else {
+			Log.info(fail);
+			reportStep(fail, "PASS");
+		}
+		return this;
+	}
+	
 	@FindBy(id="lblPrimaryCashbackDetails")
 	private static WebElement lblPrimaryCashbackDetails;
 
